@@ -7,12 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183B7626217B5E680056B3B1 /* CommonTableViewSectionVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7600217B5E680056B3B1 /* CommonTableViewSectionVM.m */; };
+		183B7627217B5E680056B3B1 /* CommonTableViewCellVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7601217B5E680056B3B1 /* CommonTableViewCellVM.m */; };
+		183B762B217B5E680056B3B1 /* CommonM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7609217B5E680056B3B1 /* CommonM.m */; };
+		183B762C217B5E680056B3B1 /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B760D217B5E680056B3B1 /* CommonTableViewCell.m */; };
+		183B762D217B5E680056B3B1 /* CommonTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B760E217B5E680056B3B1 /* CommonTableViewHeaderView.m */; };
+		183B7656217B63710056B3B1 /* QSPScrollViewVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B763D217B63710056B3B1 /* QSPScrollViewVM.m */; };
+		183B7657217B63710056B3B1 /* QSPViewVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B763F217B63710056B3B1 /* QSPViewVM.m */; };
+		183B7658217B63710056B3B1 /* QSPTableViewSectionVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7643217B63710056B3B1 /* QSPTableViewSectionVM.m */; };
+		183B7659217B63710056B3B1 /* QSPTableViewVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7644217B63710056B3B1 /* QSPTableViewVM.m */; };
+		183B765A217B63710056B3B1 /* QSPTableViewCellVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7645217B63710056B3B1 /* QSPTableViewCellVM.m */; };
+		183B765B217B63710056B3B1 /* UITableView+QSPMVVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7649217B63710056B3B1 /* UITableView+QSPMVVM.m */; };
+		183B765C217B63710056B3B1 /* QSPTableViewSectionM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B764C217B63710056B3B1 /* QSPTableViewSectionM.m */; };
+		183B765D217B63710056B3B1 /* QSPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B764E217B63710056B3B1 /* QSPView.m */; };
+		183B765E217B63710056B3B1 /* QSPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7650217B63710056B3B1 /* QSPTableViewCell.m */; };
+		183B765F217B63710056B3B1 /* QSPTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7651217B63710056B3B1 /* QSPTableViewFooterView.m */; };
+		183B7660217B63710056B3B1 /* QSPTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7653217B63710056B3B1 /* QSPTableViewHeaderView.m */; };
+		183B7663217BA2330056B3B1 /* MainVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7662217BA2330056B3B1 /* MainVM.m */; };
+		183B7666217BAEB80056B3B1 /* MainM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7665217BAEB80056B3B1 /* MainM.m */; };
+		183B7669217BB6980056B3B1 /* DetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7668217BB6980056B3B1 /* DetailVM.m */; };
+		183D688721757F83006F0CC4 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 183D688621757F83006F0CC4 /* Ticket.m */; };
 		18DE76E91EDEAB090095997C /* Review.html in Resources */ = {isa = PBXBuildFile; fileRef = 18DE76E81EDEAB090095997C /* Review.html */; };
 		18DE76EC1EDEAB420095997C /* JavaScriptCoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE76EB1EDEAB420095997C /* JavaScriptCoreViewController.m */; };
 		18DE76EF1EDEB1630095997C /* SampleBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE76EE1EDEB1630095997C /* SampleBaseViewController.m */; };
 		18F1C0B21ED7B4E300DD4E24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C0B11ED7B4E300DD4E24 /* main.m */; };
 		18F1C0B51ED7B4E300DD4E24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C0B41ED7B4E300DD4E24 /* AppDelegate.m */; };
-		18F1C0B81ED7B4E300DD4E24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C0B71ED7B4E300DD4E24 /* ViewController.m */; };
+		18F1C0B81ED7B4E300DD4E24 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C0B71ED7B4E300DD4E24 /* MainViewController.m */; };
 		18F1C0BB1ED7B4E300DD4E24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F1C0B91ED7B4E300DD4E24 /* Main.storyboard */; };
 		18F1C0BD1ED7B4E300DD4E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F1C0BC1ED7B4E300DD4E24 /* Assets.xcassets */; };
 		18F1C0C01ED7B4E300DD4E24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F1C0BE1ED7B4E300DD4E24 /* LaunchScreen.storyboard */; };
@@ -47,6 +67,47 @@
 
 /* Begin PBXFileReference section */
 		0CA5C172A5A22BDC9D20E793 /* Pods-Review.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Review.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Review/Pods-Review.debug.xcconfig"; sourceTree = "<group>"; };
+		183B75FE217B5E680056B3B1 /* CommonTableViewSectionVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableViewSectionVM.h; sourceTree = "<group>"; };
+		183B75FF217B5E680056B3B1 /* CommonTableViewCellVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableViewCellVM.h; sourceTree = "<group>"; };
+		183B7600217B5E680056B3B1 /* CommonTableViewSectionVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewSectionVM.m; sourceTree = "<group>"; };
+		183B7601217B5E680056B3B1 /* CommonTableViewCellVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewCellVM.m; sourceTree = "<group>"; };
+		183B7607217B5E680056B3B1 /* CommonM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonM.h; sourceTree = "<group>"; };
+		183B7608217B5E680056B3B1 /* CommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
+		183B7609217B5E680056B3B1 /* CommonM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonM.m; sourceTree = "<group>"; };
+		183B760B217B5E680056B3B1 /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableViewCell.h; sourceTree = "<group>"; };
+		183B760C217B5E680056B3B1 /* CommonTableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTableViewHeaderView.h; sourceTree = "<group>"; };
+		183B760D217B5E680056B3B1 /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewCell.m; sourceTree = "<group>"; };
+		183B760E217B5E680056B3B1 /* CommonTableViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewHeaderView.m; sourceTree = "<group>"; };
+		183B763D217B63710056B3B1 /* QSPScrollViewVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPScrollViewVM.m; sourceTree = "<group>"; };
+		183B763E217B63710056B3B1 /* QSPTableViewSectionVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPTableViewSectionVM.h; sourceTree = "<group>"; };
+		183B763F217B63710056B3B1 /* QSPViewVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPViewVM.m; sourceTree = "<group>"; };
+		183B7640217B63710056B3B1 /* QSPTableViewVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPTableViewVM.h; sourceTree = "<group>"; };
+		183B7641217B63710056B3B1 /* QSPTableViewCellVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPTableViewCellVM.h; sourceTree = "<group>"; };
+		183B7642217B63710056B3B1 /* QSPScrollViewVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPScrollViewVM.h; sourceTree = "<group>"; };
+		183B7643217B63710056B3B1 /* QSPTableViewSectionVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPTableViewSectionVM.m; sourceTree = "<group>"; };
+		183B7644217B63710056B3B1 /* QSPTableViewVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPTableViewVM.m; sourceTree = "<group>"; };
+		183B7645217B63710056B3B1 /* QSPTableViewCellVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPTableViewCellVM.m; sourceTree = "<group>"; };
+		183B7646217B63710056B3B1 /* QSPViewVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPViewVM.h; sourceTree = "<group>"; };
+		183B7648217B63710056B3B1 /* UITableView+QSPMVVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+QSPMVVM.h"; sourceTree = "<group>"; };
+		183B7649217B63710056B3B1 /* UITableView+QSPMVVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+QSPMVVM.m"; sourceTree = "<group>"; };
+		183B764B217B63710056B3B1 /* QSPTableViewSectionM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPTableViewSectionM.h; sourceTree = "<group>"; };
+		183B764C217B63710056B3B1 /* QSPTableViewSectionM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPTableViewSectionM.m; sourceTree = "<group>"; };
+		183B764E217B63710056B3B1 /* QSPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPView.m; sourceTree = "<group>"; };
+		183B764F217B63710056B3B1 /* QSPTableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPTableViewHeaderView.h; sourceTree = "<group>"; };
+		183B7650217B63710056B3B1 /* QSPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPTableViewCell.m; sourceTree = "<group>"; };
+		183B7651217B63710056B3B1 /* QSPTableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPTableViewFooterView.m; sourceTree = "<group>"; };
+		183B7652217B63710056B3B1 /* QSPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPView.h; sourceTree = "<group>"; };
+		183B7653217B63710056B3B1 /* QSPTableViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSPTableViewHeaderView.m; sourceTree = "<group>"; };
+		183B7654217B63710056B3B1 /* QSPTableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPTableViewFooterView.h; sourceTree = "<group>"; };
+		183B7655217B63710056B3B1 /* QSPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSPTableViewCell.h; sourceTree = "<group>"; };
+		183B7661217BA2330056B3B1 /* MainVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVM.h; sourceTree = "<group>"; };
+		183B7662217BA2330056B3B1 /* MainVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVM.m; sourceTree = "<group>"; };
+		183B7664217BAEB80056B3B1 /* MainM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainM.h; sourceTree = "<group>"; };
+		183B7665217BAEB80056B3B1 /* MainM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainM.m; sourceTree = "<group>"; };
+		183B7667217BB6980056B3B1 /* DetailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailVM.h; sourceTree = "<group>"; };
+		183B7668217BB6980056B3B1 /* DetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailVM.m; sourceTree = "<group>"; };
+		183D688521757F83006F0CC4 /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		183D688621757F83006F0CC4 /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
 		18DE76E81EDEAB090095997C /* Review.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Review.html; sourceTree = "<group>"; };
 		18DE76EA1EDEAB420095997C /* JavaScriptCoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaScriptCoreViewController.h; sourceTree = "<group>"; };
 		18DE76EB1EDEAB420095997C /* JavaScriptCoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptCoreViewController.m; sourceTree = "<group>"; };
@@ -56,8 +117,8 @@
 		18F1C0B11ED7B4E300DD4E24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18F1C0B31ED7B4E300DD4E24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18F1C0B41ED7B4E300DD4E24 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18F1C0B61ED7B4E300DD4E24 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		18F1C0B71ED7B4E300DD4E24 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		18F1C0B61ED7B4E300DD4E24 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		18F1C0B71ED7B4E300DD4E24 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		18F1C0BA1ED7B4E300DD4E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18F1C0BC1ED7B4E300DD4E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18F1C0BF1ED7B4E300DD4E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -128,6 +189,210 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		183B75F3217B5D540056B3B1 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				183B75F5217B5D540056B3B1 /* Tools */,
+				183B75F9217B5D540056B3B1 /* Model */,
+				183B75FA217B5D540056B3B1 /* View */,
+				183B75F4217B5D540056B3B1 /* ViewModel */,
+				183B75F8217B5D540056B3B1 /* Controller */,
+				183B75F6217B5D540056B3B1 /* Other */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		183B75F4217B5D540056B3B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				183B7661217BA2330056B3B1 /* MainVM.h */,
+				183B7662217BA2330056B3B1 /* MainVM.m */,
+				183B7667217BB6980056B3B1 /* DetailVM.h */,
+				183B7668217BB6980056B3B1 /* DetailVM.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		183B75F5217B5D540056B3B1 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				183B75FC217B5E680056B3B1 /* Common */,
+				183B763B217B63710056B3B1 /* QSPMVVM */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		183B75F6217B5D540056B3B1 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				183B75FB217B5E130056B3B1 /* System */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		183B75F8217B5D540056B3B1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18F1C0B61ED7B4E300DD4E24 /* MainViewController.h */,
+				18F1C0B71ED7B4E300DD4E24 /* MainViewController.m */,
+				18F1C0EE1ED7CD4D00DD4E24 /* DetailViewController.h */,
+				18F1C0EF1ED7CD4D00DD4E24 /* DetailViewController.m */,
+				18DE76ED1EDEB1630095997C /* SampleBaseViewController.h */,
+				18DE76EE1EDEB1630095997C /* SampleBaseViewController.m */,
+				18F1C0F11ED919BA00DD4E24 /* NotificationViewController.h */,
+				18F1C0F21ED919BA00DD4E24 /* NotificationViewController.m */,
+				18DE76EA1EDEAB420095997C /* JavaScriptCoreViewController.h */,
+				18DE76EB1EDEAB420095997C /* JavaScriptCoreViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		183B75F9217B5D540056B3B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18F1C0E31ED7B75900DD4E24 /* ReviewModel.h */,
+				18F1C0E41ED7B75900DD4E24 /* ReviewModel.m */,
+				183B7664217BAEB80056B3B1 /* MainM.h */,
+				183B7665217BAEB80056B3B1 /* MainM.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		183B75FA217B5D540056B3B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		183B75FB217B5E130056B3B1 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				18F1C0B31ED7B4E300DD4E24 /* AppDelegate.h */,
+				18F1C0B41ED7B4E300DD4E24 /* AppDelegate.m */,
+				18F1C0E91ED7BA9000DD4E24 /* ReviewCell.h */,
+				18F1C0EA1ED7BA9000DD4E24 /* ReviewCell.m */,
+				18F1C0EC1ED7CC3900DD4E24 /* ReviewList.plist */,
+				18DE76E81EDEAB090095997C /* Review.html */,
+				18F1C0B91ED7B4E300DD4E24 /* Main.storyboard */,
+				18F1C0BC1ED7B4E300DD4E24 /* Assets.xcassets */,
+				18F1C0BE1ED7B4E300DD4E24 /* LaunchScreen.storyboard */,
+				18F1C0C11ED7B4E300DD4E24 /* Info.plist */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		183B75FC217B5E680056B3B1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				183B75FD217B5E680056B3B1 /* ViewModel */,
+				183B7602217B5E680056B3B1 /* Source */,
+				183B7606217B5E680056B3B1 /* Model */,
+				183B760A217B5E680056B3B1 /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		183B75FD217B5E680056B3B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				183B75FE217B5E680056B3B1 /* CommonTableViewSectionVM.h */,
+				183B75FF217B5E680056B3B1 /* CommonTableViewCellVM.h */,
+				183B7600217B5E680056B3B1 /* CommonTableViewSectionVM.m */,
+				183B7601217B5E680056B3B1 /* CommonTableViewCellVM.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		183B7602217B5E680056B3B1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		183B7606217B5E680056B3B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				183B7607217B5E680056B3B1 /* CommonM.h */,
+				183B7608217B5E680056B3B1 /* CommonDefine.h */,
+				183B7609217B5E680056B3B1 /* CommonM.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		183B760A217B5E680056B3B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				183B760B217B5E680056B3B1 /* CommonTableViewCell.h */,
+				183B760C217B5E680056B3B1 /* CommonTableViewHeaderView.h */,
+				183B760D217B5E680056B3B1 /* CommonTableViewCell.m */,
+				183B760E217B5E680056B3B1 /* CommonTableViewHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		183B763B217B63710056B3B1 /* QSPMVVM */ = {
+			isa = PBXGroup;
+			children = (
+				183B7647217B63710056B3B1 /* Category */,
+				183B763C217B63710056B3B1 /* ViewModel */,
+				183B764A217B63710056B3B1 /* Model */,
+				183B764D217B63710056B3B1 /* View */,
+			);
+			path = QSPMVVM;
+			sourceTree = "<group>";
+		};
+		183B763C217B63710056B3B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				183B763D217B63710056B3B1 /* QSPScrollViewVM.m */,
+				183B763E217B63710056B3B1 /* QSPTableViewSectionVM.h */,
+				183B763F217B63710056B3B1 /* QSPViewVM.m */,
+				183B7640217B63710056B3B1 /* QSPTableViewVM.h */,
+				183B7641217B63710056B3B1 /* QSPTableViewCellVM.h */,
+				183B7642217B63710056B3B1 /* QSPScrollViewVM.h */,
+				183B7643217B63710056B3B1 /* QSPTableViewSectionVM.m */,
+				183B7644217B63710056B3B1 /* QSPTableViewVM.m */,
+				183B7645217B63710056B3B1 /* QSPTableViewCellVM.m */,
+				183B7646217B63710056B3B1 /* QSPViewVM.h */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		183B7647217B63710056B3B1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				183B7648217B63710056B3B1 /* UITableView+QSPMVVM.h */,
+				183B7649217B63710056B3B1 /* UITableView+QSPMVVM.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		183B764A217B63710056B3B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				183B764B217B63710056B3B1 /* QSPTableViewSectionM.h */,
+				183B764C217B63710056B3B1 /* QSPTableViewSectionM.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		183B764D217B63710056B3B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				183B764E217B63710056B3B1 /* QSPView.m */,
+				183B764F217B63710056B3B1 /* QSPTableViewHeaderView.h */,
+				183B7650217B63710056B3B1 /* QSPTableViewCell.m */,
+				183B7651217B63710056B3B1 /* QSPTableViewFooterView.m */,
+				183B7652217B63710056B3B1 /* QSPView.h */,
+				183B7653217B63710056B3B1 /* QSPTableViewHeaderView.m */,
+				183B7654217B63710056B3B1 /* QSPTableViewFooterView.h */,
+				183B7655217B63710056B3B1 /* QSPTableViewCell.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		18F1C0A41ED7B4E300DD4E24 = {
 			isa = PBXGroup;
 			children = (
@@ -153,29 +418,10 @@
 		18F1C0AF1ED7B4E300DD4E24 /* Review */ = {
 			isa = PBXGroup;
 			children = (
-				18F1C0B31ED7B4E300DD4E24 /* AppDelegate.h */,
-				18F1C0B41ED7B4E300DD4E24 /* AppDelegate.m */,
-				18F1C0B61ED7B4E300DD4E24 /* ViewController.h */,
-				18F1C0B71ED7B4E300DD4E24 /* ViewController.m */,
-				18F1C0EE1ED7CD4D00DD4E24 /* DetailViewController.h */,
-				18F1C0EF1ED7CD4D00DD4E24 /* DetailViewController.m */,
-				18DE76ED1EDEB1630095997C /* SampleBaseViewController.h */,
-				18DE76EE1EDEB1630095997C /* SampleBaseViewController.m */,
-				18F1C0F11ED919BA00DD4E24 /* NotificationViewController.h */,
-				18F1C0F21ED919BA00DD4E24 /* NotificationViewController.m */,
-				18DE76EA1EDEAB420095997C /* JavaScriptCoreViewController.h */,
-				18DE76EB1EDEAB420095997C /* JavaScriptCoreViewController.m */,
-				18F1C0E31ED7B75900DD4E24 /* ReviewModel.h */,
-				18F1C0E41ED7B75900DD4E24 /* ReviewModel.m */,
-				18F1C0E91ED7BA9000DD4E24 /* ReviewCell.h */,
-				18F1C0EA1ED7BA9000DD4E24 /* ReviewCell.m */,
-				18F1C0EC1ED7CC3900DD4E24 /* ReviewList.plist */,
-				18DE76E81EDEAB090095997C /* Review.html */,
-				18F1C0B91ED7B4E300DD4E24 /* Main.storyboard */,
-				18F1C0BC1ED7B4E300DD4E24 /* Assets.xcassets */,
-				18F1C0BE1ED7B4E300DD4E24 /* LaunchScreen.storyboard */,
-				18F1C0C11ED7B4E300DD4E24 /* Info.plist */,
+				183B75F3217B5D540056B3B1 /* Class */,
 				18F1C0B01ED7B4E300DD4E24 /* Supporting Files */,
+				183D688521757F83006F0CC4 /* Ticket.h */,
+				183D688621757F83006F0CC4 /* Ticket.m */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -227,8 +473,6 @@
 				18F1C0A91ED7B4E300DD4E24 /* Sources */,
 				18F1C0AA1ED7B4E300DD4E24 /* Frameworks */,
 				18F1C0AB1ED7B4E300DD4E24 /* Resources */,
-				97CAA29E4DD475686558A6C1 /* [CP] Embed Pods Frameworks */,
-				E975F40D34CD0588522C9FA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,8 +491,6 @@
 				18F1C0C21ED7B4E300DD4E24 /* Sources */,
 				18F1C0C31ED7B4E300DD4E24 /* Frameworks */,
 				18F1C0C41ED7B4E300DD4E24 /* Resources */,
-				1428F2A4C3DAEF2C8E14448D /* [CP] Embed Pods Frameworks */,
-				24887E707C90B12891EBB86A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,8 +510,6 @@
 				18F1C0CD1ED7B4E300DD4E24 /* Sources */,
 				18F1C0CE1ED7B4E300DD4E24 /* Frameworks */,
 				18F1C0CF1ED7B4E300DD4E24 /* Resources */,
-				6937926BB331362E396F11A7 /* [CP] Embed Pods Frameworks */,
-				12C86B9150FED24BED3EB755 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -353,79 +593,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12C86B9150FED24BED3EB755 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReviewUITests/Pods-ReviewUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1428F2A4C3DAEF2C8E14448D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		24887E707C90B12891EBB86A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		32FEFB10DF73160B5D907373 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReviewTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6937926BB331362E396F11A7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReviewUITests/Pods-ReviewUITests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		84C8E7F229B478990904327F /* [CP] Check Pods Manifest.lock */ = {
@@ -434,28 +617,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Review-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		97CAA29E4DD475686558A6C1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Review/Pods-Review-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		988433A02CCAB4B5D5BA1A8B /* [CP] Check Pods Manifest.lock */ = {
@@ -464,28 +635,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReviewUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E975F40D34CD0588522C9FA2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Review/Pods-Review-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -496,13 +655,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DE76EF1EDEB1630095997C /* SampleBaseViewController.m in Sources */,
+				183B765F217B63710056B3B1 /* QSPTableViewFooterView.m in Sources */,
+				183B7663217BA2330056B3B1 /* MainVM.m in Sources */,
+				183B765A217B63710056B3B1 /* QSPTableViewCellVM.m in Sources */,
+				183B7627217B5E680056B3B1 /* CommonTableViewCellVM.m in Sources */,
 				18DE76EC1EDEAB420095997C /* JavaScriptCoreViewController.m in Sources */,
+				183B765E217B63710056B3B1 /* QSPTableViewCell.m in Sources */,
+				183B7669217BB6980056B3B1 /* DetailVM.m in Sources */,
+				183B7659217B63710056B3B1 /* QSPTableViewVM.m in Sources */,
 				18F1C0F31ED919BA00DD4E24 /* NotificationViewController.m in Sources */,
 				18F1C0EB1ED7BA9000DD4E24 /* ReviewCell.m in Sources */,
-				18F1C0B81ED7B4E300DD4E24 /* ViewController.m in Sources */,
+				183B762D217B5E680056B3B1 /* CommonTableViewHeaderView.m in Sources */,
+				183B765B217B63710056B3B1 /* UITableView+QSPMVVM.m in Sources */,
+				183B7626217B5E680056B3B1 /* CommonTableViewSectionVM.m in Sources */,
+				183B7658217B63710056B3B1 /* QSPTableViewSectionVM.m in Sources */,
+				183B762B217B5E680056B3B1 /* CommonM.m in Sources */,
+				183B765C217B63710056B3B1 /* QSPTableViewSectionM.m in Sources */,
+				18F1C0B81ED7B4E300DD4E24 /* MainViewController.m in Sources */,
+				183D688721757F83006F0CC4 /* Ticket.m in Sources */,
 				18F1C0B51ED7B4E300DD4E24 /* AppDelegate.m in Sources */,
+				183B762C217B5E680056B3B1 /* CommonTableViewCell.m in Sources */,
+				183B7666217BAEB80056B3B1 /* MainM.m in Sources */,
 				18F1C0B21ED7B4E300DD4E24 /* main.m in Sources */,
+				183B7660217B63710056B3B1 /* QSPTableViewHeaderView.m in Sources */,
+				183B7656217B63710056B3B1 /* QSPScrollViewVM.m in Sources */,
+				183B7657217B63710056B3B1 /* QSPViewVM.m in Sources */,
 				18F1C0E51ED7B75900DD4E24 /* ReviewModel.m in Sources */,
+				183B765D217B63710056B3B1 /* QSPView.m in Sources */,
 				18F1C0F01ED7CD4D00DD4E24 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,8 +824,8 @@
 			baseConfigurationReference = 0CA5C172A5A22BDC9D20E793 /* Pods-Review.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Review/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INFOPLIST_FILE = Review/Class/Other/System/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -663,8 +842,8 @@
 			baseConfigurationReference = 2F4B22FFF908683B362871CD /* Pods-Review.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Review/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INFOPLIST_FILE = Review/Class/Other/System/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
