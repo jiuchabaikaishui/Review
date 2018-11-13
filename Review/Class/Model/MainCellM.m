@@ -6,9 +6,9 @@
 //  Copyright © 2018年 QSP. All rights reserved.
 //
 
-#import "MainM.h"
+#import "MainCellM.h"
 
-@implementation MainM
+@implementation MainCellM
 
 + (instancetype)mainMWithDic:(NSDictionary *)dic
 {
@@ -19,7 +19,7 @@
     if (self = [super init]) {
         if (dic) {
             self.titleSet(dic[@"title"]);
-            self.detailSet(dic[@"describe"]);
+            self.detailSet(dic[@"detail"]);
             self.explain = dic[@"explain"];
             self.sampleClass = dic[@"sampleClass"];
         }

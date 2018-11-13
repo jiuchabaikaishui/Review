@@ -4,8 +4,8 @@
 <array>
 	<dict>
 		<key>title</key>
-		<string>NSNotification通知</string>
-		<key>describe</key>
+		<string>NSNotification</string>
+		<key>detail</key>
 		<string>NSNotification是iOS中一个调度消息通知的类，采用单例模式设计，在程序中实现传值、回调等地方应用很广。</string>
 		<key>explain</key>
 		<string>采用单例的设计模式,如果没关系就用通知.,通知是多对多,而且发送的只管发送,接收的只管接收.当需要跨越多个控制器进行传值的时候,notification是一个最方便的选择.,使用完毕需要及时注销。</string>
@@ -15,7 +15,7 @@
 	<dict>
 		<key>title</key>
 		<string>JavaScriptCore</string>
-		<key>describe</key>
+		<key>detail</key>
 		<string>JavaScriptCore框架其实只是基于webkit中以C/C++实现的JavaScriptCore的一个包装，该框架让Objective-C和JavaScript代码直接的交互变得更加的简单方便。</string>
 		<key>explain</key>
 		<string>JSContext

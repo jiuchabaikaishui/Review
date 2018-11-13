@@ -6,9 +6,9 @@
 //  Copyright © 2018年 QSP. All rights reserved.
 //
 
-#import "QSPViewVM.h"
+#import "BaseVM.h"
 
-@interface DetailVM : QSPViewVM
+@interface DetailVM : BaseVM
 
 @property (nonatomic, copy) NSString *title;
 @property (copy, nonatomic) NSString *explain;

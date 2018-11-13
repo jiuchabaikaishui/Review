@@ -8,7 +8,7 @@
 
 #import "MainVM.h"
 #import "CommonDefine.h"
-#import "MainM.h"
+#import "MainCellM.h"
 
 @implementation MainVM
 
@@ -18,11 +18,32 @@
         self.tableViewVM = [QSPTableViewVM create:^(QSPTableViewVM *vm) {
             NSArray *arr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ReviewList" ofType:@"plist"]];
             vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
+                sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
+                    model.titleSet(@"基础");
+                });
                 for (NSDictionary *dic in arr) {
                     sectionVM.addRowVMCreate(CommonTableViewCellVM.class, ^(CommonTableViewCellVM *cellVM){
-                        cellVM.dataMSet([MainM mainMWithDic:dic]);
+                        cellVM.dataMSet([MainCellM mainMWithDic:dic]);
                     });
                 }
+            });
+            
+            vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
+                sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
+                    model.titleSet(@"运行时");
+                });
+            });
+            
+            vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
+                sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
+                    model.titleSet(@"GCD");
+                });
+            });
+            
+            vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
+                sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
+                    model.titleSet(@"算法");
+                });
             });
         }];
     }

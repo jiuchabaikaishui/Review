@@ -6,11 +6,11 @@
 //  Copyright © 2017年 QSP. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "ReviewModel.h"
 #import "DetailVM.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : BaseViewController
 
 @property (strong,nonatomic) ReviewModel *model;
 @property (nonatomic, strong) DetailVM *vm;

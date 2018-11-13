@@ -6,11 +6,11 @@
 //  Copyright © 2018年 QSP. All rights reserved.
 //
 
-#import "QSPViewVM.h"
+#import "BaseVM.h"
 #import "QSPTableViewVM.h"
-#import "MainM.h"
+#import "MainCellM.h"
 
-@interface MainVM : QSPViewVM
+@interface MainVM : BaseVM
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, strong) QSPTableViewVM *tableViewVM;

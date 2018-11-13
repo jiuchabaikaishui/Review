@@ -78,8 +78,13 @@
         }
         else
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该技能没有演示示例！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alertView show];
+            UIAlertController *nextCtr = [UIAlertController alertControllerWithTitle:@"提示" message:@"该技能没有演示示例！" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                @strongify(self);
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [nextCtr addAction:okAction];
+            [self presentViewController:nextCtr animated:YES completion:nil];
         }
     }];
 }

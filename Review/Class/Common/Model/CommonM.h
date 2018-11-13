@@ -6,9 +6,9 @@
 //  Copyright © 2018年 Jingbeijinrong. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseM.h"
 
-@interface CommonM : NSObject
+@interface CommonM : BaseM
 
 @property (copy, nonatomic, readonly) NSString *title;
 @property (copy, nonatomic, readonly) NSString *detail;

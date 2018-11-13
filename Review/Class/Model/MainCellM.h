@@ -8,7 +8,7 @@
 
 #import "CommonM.h"
 
-@interface MainM : CommonM
+@interface MainCellM : CommonM
 
 @property (copy, nonatomic) NSString *explain;
 @property (copy, nonatomic) NSString *sampleClass;

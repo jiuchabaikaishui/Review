@@ -102,43 +102,43 @@
         NSLog(@"exception:%@",exception);
     };
     //注入JS需要的“OC”对象
-    self.context[@"OC"] = self;
-    __weak typeof(self) weakSealf = self;
-    self.context[@"showMessage"] = ^(NSString *message){
-        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-        [alertCtr addAction:cancel];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSealf presentViewController:alertCtr animated:YES completion:nil];
-        });
-    };
-    self.context[@"showTitleAndMessage"] = ^(NSString *title, NSString *message){
-        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-        [alertCtr addAction:cancel];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSealf presentViewController:alertCtr animated:YES completion:nil];
-        });
-    };
-    self.context[@"doSomethingThenCallBack"] = ^{
-        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        [alertCtr addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = @"请输入传入的数据!";
-            [textField addTarget:weakSealf action:@selector(textFieldChange:) forControlEvents:UIControlEventEditingChanged];
-        }];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        [alertCtr addAction:cancel];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            UITextField *textField = [alertCtr.textFields firstObject];
-            JSValue *callback = weakSealf.context[@"callback"];
-            [callback callWithArguments:@[textField.text]];
-        }];
-        [alertCtr addAction:ok];
-        ok.enabled = NO;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSealf presentViewController:alertCtr animated:YES completion:nil];
-        });
-    };
+    K_WeakSelf
+    self.context[@"OC"] = weakSelf;
+//    self.context[@"showMessage"] = ^(NSString *message){
+//        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+//        [alertCtr addAction:cancel];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [weakSelf presentViewController:alertCtr animated:YES completion:nil];
+//        });
+//    };
+//    self.context[@"showTitleAndMessage"] = ^(NSString *title, NSString *message){
+//        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+//        [alertCtr addAction:cancel];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [weakSelf presentViewController:alertCtr animated:YES completion:nil];
+//        });
+//    };
+//    self.context[@"doSomethingThenCallBack"] = ^{
+//        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:nil preferredStyle:UIAlertControllerStyleAlert];
+//        [alertCtr addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//            textField.placeholder = @"请输入传入的数据!";
+//            [textField addTarget:weakSelf action:@selector(textFieldChange:) forControlEvents:UIControlEventEditingChanged];
+//        }];
+//        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+//        [alertCtr addAction:cancel];
+//        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            UITextField *textField = [alertCtr.textFields firstObject];
+//            JSValue *callback = weakSelf.context[@"callback"];
+//            [callback callWithArguments:@[textField.text]];
+//        }];
+//        [alertCtr addAction:ok];
+//        ok.enabled = NO;
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [weakSelf presentViewController:alertCtr animated:YES completion:nil];
+//        });
+//    };
 }
 - (void)textFieldChange:(UITextField *)sender
 {

@@ -9,6 +9,7 @@
 #ifndef CommonDefine_h
 #define CommonDefine_h
 
+#import "ConFunc.h"
 #import "CommonM.h"
 #import "CommonTableViewCellVM.h"
 #import "CommonTableViewCell.h"

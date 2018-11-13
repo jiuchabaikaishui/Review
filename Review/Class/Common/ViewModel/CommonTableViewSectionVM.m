@@ -27,6 +27,27 @@
         CGFloat H = [data.title boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
         self.headerTitleRect = CGRectMake(X, Y, W, H);
         
+//        CGFloat detail_H = [data.detail boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
+//        if ([ConFunc blankOfStr:data.title]) {
+//            if ([ConFunc blankOfStr:data.detail]) {
+//            } else {
+//                self.headerDetailRect = CGRectMake(X, Y, W, detail_H);
+//
+//                self.headerHeightSet(Y + detail_H + 4);
+//            }
+//        } else {
+//            self.headerTitleRect = CGRectMake(X, Y, W, H);
+//
+//            if ([ConFunc blankOfStr:data.detail]) {
+//                self.headerHeightSet(Y + H + 4);
+//            } else {
+//                Y = Y + H + 8;
+//                self.headerDetailRect = CGRectMake(X, Y, W, detail_H);
+//
+//                self.headerHeightSet(Y + detail_H + 4);
+//            }
+//        }
+        
         Y = Y + H + 8;
         H = [data.detail boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
         self.headerDetailRect = CGRectMake(X, Y, W, H);

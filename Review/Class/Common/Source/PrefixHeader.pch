@@ -1,0 +1,40 @@
+//
+//  PrefixHeader.pch
+//  Review
+//
+//  Created by 綦帅鹏 on 2018/11/13.
+//  Copyright © 2018年 QSP. All rights reserved.
+//
+
+/**
+ *  1.用来存放全局的宏（整个项目中都用得上的宏）
+ *  2.用来包含一些全局的头文件（整个项目中都用得上的头文件）
+ */
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+/**
+ *  里面的内容只能用到.m或者.mm文件中
+ */
+#ifdef __OBJC__
+
+#import "CommonDefine.h"
+
+/**
+ *  1.调试阶段，写代码调试错误，需要打印。(系统会自定义一个叫做DEBUG的宏)
+ *  2.发布阶段，安装在用户设备上，不需要打印。(系统会删掉这个叫做DEBUG的宏)
+ */
+#if DEBUG
+#define DebugLog(...)    NSLog(__VA_ARGS__)
+#else
+#define DebugLog(...)
+#endif
+
+#endif
+
+
+#endif /* PrefixHeader_pch */

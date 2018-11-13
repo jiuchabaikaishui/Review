@@ -6,10 +6,10 @@
 //  Copyright © 2017年 QSP. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "ReviewModel.h"
 
-@interface SampleBaseViewController : UIViewController
+@interface SampleBaseViewController : BaseViewController
 
 @property (strong, nonatomic) ReviewModel *model;
 
