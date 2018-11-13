@@ -53,17 +53,14 @@
      });
      */
     
-    [self settingUi];
+    [self settingUI];
     [self bindVM];
 }
-- (void)settingUi
+- (void)settingUI
 {
-    if (self.model) {
-        self.title = self.model.title;
-        self.textView.editable = NO;
-        self.textView.text = self.model.explain;
-    }
+    
 }
+
 - (void)bindVM {
     self.title = self.vm.title;
     self.textView.text = self.vm.explain;
@@ -72,8 +69,7 @@
     [self.vm.command.executionSignals subscribeNext:^(id  _Nullable x) {
         @strongify(self);
         if (self.vm.sampleClass) {
-            Class class = NSClassFromString(self.vm.sampleClass);
-            UIViewController *nextCtr = [[class alloc] init];
+            UIViewController *nextCtr = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:self.vm.sampleClass];
             [self.navigationController pushViewController:nextCtr animated:YES];
         }
         else

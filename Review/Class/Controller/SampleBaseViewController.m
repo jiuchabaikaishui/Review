@@ -18,11 +18,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    if (self.model) {
-        self.title = [NSString stringWithFormat:@"%@示例", self.model.title];
-    }
-    else
-    {
+    if (!self.title) {
         self.title = @"示例演示";
     }
 }

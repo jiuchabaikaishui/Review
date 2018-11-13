@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gUg-ol-iKE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gUg-ol-iKE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -95,6 +95,122 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="go3-EF-gaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1671" y="-355"/>
+        </scene>
+        <!--Notification View Controller-->
+        <scene sceneID="HqI-vh-444">
+            <objects>
+                <viewController storyboardIdentifier="NotificationViewController" id="O9a-xo-2u7" customClass="NotificationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hCO-Sx-dBw"/>
+                        <viewControllerLayoutGuide type="bottom" id="4TG-MZ-DNF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A8b-o5-I6X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNy-w2-fve">
+                                <rect key="frame" x="156.5" y="579" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="G6w-F4-yVf"/>
+                                    <constraint firstAttribute="width" constant="62" id="Ops-Tc-wmZ"/>
+                                </constraints>
+                                <state key="normal" title="发送通知"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ax-RV-8Zu">
+                                <rect key="frame" x="156.5" y="617" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="lXU-ZT-p3M"/>
+                                    <constraint firstAttribute="width" constant="62" id="oEr-jh-XY8"/>
+                                </constraints>
+                                <state key="normal" title="移除通知"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7z-ey-Aoz">
+                                <rect key="frame" x="156.5" y="541" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="E1p-Mz-bOi"/>
+                                    <constraint firstAttribute="height" constant="30" id="PYS-DB-bUd"/>
+                                </constraints>
+                                <state key="normal" title="添加通知"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4TG-MZ-DNF" firstAttribute="top" secondItem="3Ax-RV-8Zu" secondAttribute="bottom" constant="20" id="0Bq-ud-Mdn"/>
+                            <constraint firstItem="wNy-w2-fve" firstAttribute="top" secondItem="E7z-ey-Aoz" secondAttribute="bottom" constant="8" id="Bi0-yp-GGY"/>
+                            <constraint firstItem="3Ax-RV-8Zu" firstAttribute="top" secondItem="wNy-w2-fve" secondAttribute="bottom" constant="8" id="CUV-H9-d2I"/>
+                            <constraint firstItem="E7z-ey-Aoz" firstAttribute="centerX" secondItem="A8b-o5-I6X" secondAttribute="centerX" id="Jlv-wW-UuL"/>
+                            <constraint firstItem="wNy-w2-fve" firstAttribute="centerX" secondItem="A8b-o5-I6X" secondAttribute="centerX" id="lDn-vT-7jx"/>
+                            <constraint firstItem="3Ax-RV-8Zu" firstAttribute="centerX" secondItem="A8b-o5-I6X" secondAttribute="centerX" id="rJu-Jz-KIR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addB" destination="E7z-ey-Aoz" id="7hh-Fr-0kR"/>
+                        <outlet property="postB" destination="wNy-w2-fve" id="X0P-vN-WEv"/>
+                        <outlet property="removeB" destination="3Ax-RV-8Zu" id="fWn-OJ-gwM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ao2-uR-DrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="-356"/>
+        </scene>
+        <!--Java Script Core View Controller-->
+        <scene sceneID="feK-SY-X0g">
+            <objects>
+                <viewController storyboardIdentifier="JavaScriptCoreViewController" id="WMd-UF-DPA" customClass="JavaScriptCoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vCr-gD-GZ1"/>
+                        <viewControllerLayoutGuide type="bottom" id="heg-SL-MYi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yjI-Vd-yYx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ta-bU-ESu">
+                                <rect key="frame" x="16" y="597" width="167.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rxP-rH-m4U"/>
+                                </constraints>
+                                <state key="normal" title="OC加载JS"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-D1-H0m">
+                                <rect key="frame" x="191.5" y="597" width="167.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="4lM-7z-GLU"/>
+                                    <constraint firstAttribute="height" constant="50" id="dSf-5y-4XU"/>
+                                </constraints>
+                                <state key="normal" title="OC调用JS方法"/>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCf-Dg-8T7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WMd-UF-DPA" id="97I-cC-8QG"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eCf-Dg-8T7" secondAttribute="trailing" id="FpF-zF-Khp"/>
+                            <constraint firstItem="3aQ-D1-H0m" firstAttribute="trailing" secondItem="yjI-Vd-yYx" secondAttribute="trailingMargin" id="OTH-Fe-2Mo"/>
+                            <constraint firstItem="7ta-bU-ESu" firstAttribute="top" secondItem="eCf-Dg-8T7" secondAttribute="bottom" constant="8" id="fVY-ch-tkF"/>
+                            <constraint firstItem="3aQ-D1-H0m" firstAttribute="leading" secondItem="7ta-bU-ESu" secondAttribute="trailing" constant="8" id="gAn-xm-mUB"/>
+                            <constraint firstItem="eCf-Dg-8T7" firstAttribute="top" secondItem="yjI-Vd-yYx" secondAttribute="top" id="iIq-c4-xWX"/>
+                            <constraint firstItem="3aQ-D1-H0m" firstAttribute="width" secondItem="7ta-bU-ESu" secondAttribute="width" id="mDo-eL-h7p"/>
+                            <constraint firstItem="heg-SL-MYi" firstAttribute="top" secondItem="3aQ-D1-H0m" secondAttribute="bottom" constant="20" id="nVt-W0-sjj"/>
+                            <constraint firstItem="7ta-bU-ESu" firstAttribute="leading" secondItem="yjI-Vd-yYx" secondAttribute="leadingMargin" id="q95-Lv-vI6"/>
+                            <constraint firstItem="heg-SL-MYi" firstAttribute="top" secondItem="7ta-bU-ESu" secondAttribute="bottom" constant="20" id="vkM-co-V03"/>
+                            <constraint firstItem="eCf-Dg-8T7" firstAttribute="leading" secondItem="yjI-Vd-yYx" secondAttribute="leading" id="xrr-PW-0pZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="callB" destination="3aQ-D1-H0m" id="Lc5-4D-xol"/>
+                        <outlet property="loadB" destination="7ta-bU-ESu" id="AYL-Og-lBG"/>
+                        <outlet property="webView" destination="eCf-Dg-8T7" id="1Dt-ik-LsD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRz-Rr-vNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="366.56671664167919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vds-ot-hdS">

@@ -16,11 +16,11 @@
     if (self = [super init]) {
         self.title = @"iOS复习";
         self.tableViewVM = [QSPTableViewVM create:^(QSPTableViewVM *vm) {
-            NSArray *arr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ReviewList" ofType:@"plist"]];
             vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
                 sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
                     model.titleSet(@"基础");
                 });
+                NSArray *arr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ReviewList" ofType:@"plist"]];
                 for (NSDictionary *dic in arr) {
                     sectionVM.addRowVMCreate(CommonTableViewCellVM.class, ^(CommonTableViewCellVM *cellVM){
                         cellVM.dataMSet([MainCellM mainMWithDic:dic]);

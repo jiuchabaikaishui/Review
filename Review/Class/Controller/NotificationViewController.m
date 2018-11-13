@@ -8,15 +8,30 @@
 
 #import "NotificationViewController.h"
 #import "Masonry.h"
+#import "NotificationVM.h"
 
 #define NotificationCenter                  [NSNotificationCenter defaultCenter]
 #define Revie_Notification_Name             @"ReviewNotification"
 
 @interface NotificationViewController ()
 
+@property (strong, nonatomic) NotificationVM *vm;
+@property (weak, nonatomic) IBOutlet UIButton *addB;
+@property (weak, nonatomic) IBOutlet UIButton *postB;
+@property (weak, nonatomic) IBOutlet UIButton *removeB;
+
 @end
 
 @implementation NotificationViewController
+
+#pragma mark - 属性方法
+- (NotificationVM *)vm {
+    if (_vm == nil) {
+        _vm = [[NotificationVM alloc] init];
+    }
+    
+    return _vm;
+}
 
 #pragma mark - 控制器周期
 - (void)dealloc
@@ -26,29 +41,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self settingUi];
+    [self settingUI];
+    [self bindVM];
 }
 
-- (void)settingUi
+#pragma mark - 自定义方法
+- (void)settingUI
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button setTitle:@"发送通知" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-    [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@100);
-        make.height.equalTo(@50);
-        make.centerX.equalTo(self.view.mas_centerX);
-        make.centerY.equalTo(self.view.mas_centerY);
-    }];
+}
+- (void)bindVM {
+    self.addB.rac_command = self.vm.addCommand;
+    self.postB.rac_command = self.vm.postCommand;
+    self.removeB.rac_command = self.vm.removeCommand;
     
-    [NotificationCenter addObserver:self selector:@selector(notificationAction:) name:Revie_Notification_Name object:nil];
+    @weakify(self);
+    [self.vm.addCommand.executionSignals subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        [NotificationCenter addObserver:self selector:@selector(notificationAction:) name:Revie_Notification_Name object:nil];
+    }];
+    [self.vm.postCommand.executionSignals subscribeNext:^(id  _Nullable x) {
+        [NotificationCenter postNotificationName:Revie_Notification_Name object:nil];
+    }];
+    [self.vm.removeCommand.executionSignals subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        [NotificationCenter removeObserver:self];
+    }];
 }
 
-- (void)buttonAction:(UIButton *)sender
-{
-    [NotificationCenter postNotificationName:Revie_Notification_Name object:nil];
-}
 - (void)notificationAction:(NSNotification *)sender
 {
     self.view.backgroundColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1];

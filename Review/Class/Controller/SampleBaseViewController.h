@@ -7,10 +7,9 @@
 //
 
 #import "BaseViewController.h"
-#import "ReviewModel.h"
 
 @interface SampleBaseViewController : BaseViewController
 
-@property (strong, nonatomic) ReviewModel *model;
+
 
 @end

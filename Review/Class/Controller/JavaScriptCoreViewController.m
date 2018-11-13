@@ -9,82 +9,81 @@
 #import "JavaScriptCoreViewController.h"
 #import "Masonry.h"
 #import <objc/runtime.h>
+#import "JavaScriptCoreVM.h"
 
 #define Row_Count               2
 #define Screen_Width            [UIScreen mainScreen].bounds.size.width
 #define Screen_Height           [UIScreen mainScreen].bounds.size.height
 #define Button_Height           50
 
-@interface JavaScriptCoreViewController ()<UIWebViewDelegate, JSIneract>
+@interface JavaScriptCoreViewController () <UIWebViewDelegate>
 
-@property (weak,nonatomic) UIWebView *webView;
+@property (strong, nonatomic) JavaScriptCoreVM *vm;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIButton *loadB;
+@property (weak, nonatomic) IBOutlet UIButton *callB;
 @property (strong,nonatomic) JSContext *context;
 
 @end
 
 @implementation JavaScriptCoreViewController
 
+#pragma mark - 属性方法
+- (JavaScriptCoreVM *)vm {
+    if (_vm == nil) {
+        _vm = [[JavaScriptCoreVM alloc] init];
+    }
+    
+    return _vm;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self settingUi];
+    [self settingUI];
+    [self bindVM];
 }
 
 #pragma mark - 自定义方法
-- (void)settingUi
+- (void)settingUI
 {
-    self.view.backgroundColor = [UIColor lightGrayColor];
     
-    NSArray *arr = @[@{@"title": @"OC加载JS", @"selectorName": @"loadJSCode:"},
-                     @{@"title": @"OC调用JS方法", @"selectorName": @"jsFunction:"}
-                     ];
-    
-    int rowNum = arr.count > 0 ? (int)(arr.count - 1)/Row_Count + 1 : 0;
-    CGFloat spacing = 8.0;
-    UIWebView *webView = [[UIWebView alloc] init];
-    webView.delegate = self;
-    [self.view addSubview:webView];
-    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left);
-        make.top.equalTo(self.view.mas_top);
-        make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-(Button_Height + spacing)*rowNum - spacing);
-    }];
-    
-    CGFloat W = (Screen_Width - spacing*(Row_Count + 1))/Row_Count;
-    for (int index = 0; index < arr.count; index++) {
-        int row = index/Row_Count;
-        int column = index%Row_Count;
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        button.backgroundColor = [UIColor whiteColor];
-        NSDictionary *dic = arr[0];
-        [button setTitle:dic[@"title"] forState:UIControlStateNormal];
-        [button addTarget:self action:NSSelectorFromString(dic[@"selectorName"]) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
-        [button mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.view.mas_left).offset(spacing + column*(W + spacing));
-            make.top.equalTo(webView.mas_bottom).offset(spacing + row*(Button_Height + spacing));
-            make.width.equalTo(@(W));
-            make.height.equalTo(@(Button_Height));
-        }];
-    }
-    
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Review" ofType:@"html"]]]];
 }
-
-#pragma mark - 触摸点击方法
-- (void)loadJSCode:(UIButton *)sender
-{
+- (void)loadBAction:(UIButton *)sender {
     [self.context evaluateScript:@"alert('你好！');"];
 }
-- (void)jsFunction:(UIButton *)sender
-{
-//    JSContext *context = [[JSContext alloc] init];
-//    [self.context evaluateScript:@"callback('你好!');"];
-//    [self.context evaluateScript:@"alertCallback('你好啊，','小丽！')"];
+- (void)bindVM {
+    self.loadB.rac_command = self.vm.loadCommand;
+    self.callB.rac_command = self.vm.callCommand;
     
-    JSValue *callBack = self.context[@"callback"];
-    [callBack callWithArguments:@[@"大家好！"]];
+    @weakify(self);
+    [self.vm.loadCommand.executionSignals subscribeNext:^(RACSignal *x) {
+        @strongify(self);
+        [self.context evaluateScript:@"alert('你好！');"];
+    }];
+    [self.vm.callCommand.executionSignals subscribeNext:^(RACSignal *x) {
+        @strongify(self);
+        JSValue *callBack = self.context[@"callback"];
+        [callBack callWithArguments:@[@"大家好！"]];
+        [x subscribeNext:^(id  _Nullable x) {
+            DebugLog(@"---------%@", x);
+        }];
+    }];
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:self.vm.url]];
+    
+    [self.vm.showSignal subscribeNext:^(NSString *x) {
+        @strongify(self);
+        [self showMessage:x];
+    }];
+    [self.vm.doSignal subscribeNext:^(NSString *x) {
+        @strongify(self);
+        [self doSomethingThenCallBack:x];
+    }];
+    [self.vm.mixSignal subscribeNext:^(NSArray *x) {
+        @strongify(self);
+        [self mixA:[x firstObject] andB:[x lastObject]];
+    }];
 }
 
 #pragma mark - <UIWebViewDelegate>代理方法
@@ -103,42 +102,42 @@
     };
     //注入JS需要的“OC”对象
     K_WeakSelf
-    self.context[@"OC"] = weakSelf;
-//    self.context[@"showMessage"] = ^(NSString *message){
-//        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-//        [alertCtr addAction:cancel];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [weakSelf presentViewController:alertCtr animated:YES completion:nil];
-//        });
-//    };
-//    self.context[@"showTitleAndMessage"] = ^(NSString *title, NSString *message){
-//        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-//        [alertCtr addAction:cancel];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [weakSelf presentViewController:alertCtr animated:YES completion:nil];
-//        });
-//    };
-//    self.context[@"doSomethingThenCallBack"] = ^{
-//        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:nil preferredStyle:UIAlertControllerStyleAlert];
-//        [alertCtr addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-//            textField.placeholder = @"请输入传入的数据!";
-//            [textField addTarget:weakSelf action:@selector(textFieldChange:) forControlEvents:UIControlEventEditingChanged];
-//        }];
-//        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-//        [alertCtr addAction:cancel];
-//        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            UITextField *textField = [alertCtr.textFields firstObject];
-//            JSValue *callback = weakSelf.context[@"callback"];
-//            [callback callWithArguments:@[textField.text]];
-//        }];
-//        [alertCtr addAction:ok];
-//        ok.enabled = NO;
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [weakSelf presentViewController:alertCtr animated:YES completion:nil];
-//        });
-//    };
+    self.context[@"OC"] = self.vm;
+    self.context[@"showMessage"] = ^(NSString *message){
+        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        [alertCtr addAction:cancel];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf presentViewController:alertCtr animated:YES completion:nil];
+        });
+    };
+    self.context[@"showTitleAndMessage"] = ^(NSString *title, NSString *message){
+        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        [alertCtr addAction:cancel];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf presentViewController:alertCtr animated:YES completion:nil];
+        });
+    };
+    self.context[@"doSomethingThenCallBack"] = ^{
+        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [alertCtr addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = @"请输入传入的数据!";
+            [textField addTarget:weakSelf action:@selector(textFieldChange:) forControlEvents:UIControlEventEditingChanged];
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alertCtr addAction:cancel];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UITextField *textField = [alertCtr.textFields firstObject];
+            JSValue *callback = weakSelf.context[@"callback"];
+            [callback callWithArguments:@[textField.text]];
+        }];
+        [alertCtr addAction:ok];
+        ok.enabled = NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf presentViewController:alertCtr animated:YES completion:nil];
+        });
+    };
 }
 - (void)textFieldChange:(UITextField *)sender
 {

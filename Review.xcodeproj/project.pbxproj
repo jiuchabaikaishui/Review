@@ -38,7 +38,6 @@
 		18F1C0C01ED7B4E300DD4E24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F1C0BE1ED7B4E300DD4E24 /* LaunchScreen.storyboard */; };
 		18F1C0CB1ED7B4E300DD4E24 /* ReviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C0CA1ED7B4E300DD4E24 /* ReviewTests.m */; };
 		18F1C0D61ED7B4E300DD4E24 /* ReviewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C0D51ED7B4E300DD4E24 /* ReviewUITests.m */; };
-		18F1C0E51ED7B75900DD4E24 /* ReviewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C0E41ED7B75900DD4E24 /* ReviewModel.m */; };
 		18F1C0ED1ED7CC3900DD4E24 /* ReviewList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F1C0EC1ED7CC3900DD4E24 /* ReviewList.plist */; };
 		18F1C0F01ED7CD4D00DD4E24 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C0EF1ED7CD4D00DD4E24 /* DetailViewController.m */; };
 		18F1C0F31ED919BA00DD4E24 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C0F21ED919BA00DD4E24 /* NotificationViewController.m */; };
@@ -47,6 +46,8 @@
 		5C4013B2219A85E2003976B9 /* BaseVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4013B1219A85E2003976B9 /* BaseVM.m */; };
 		5C4013B5219AB01D003976B9 /* BaseM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4013B4219AB01D003976B9 /* BaseM.m */; };
 		5C4013B8219AB246003976B9 /* ConFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4013B7219AB246003976B9 /* ConFunc.m */; };
+		5C4013BE219AC7F9003976B9 /* NotificationVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4013BD219AC7F9003976B9 /* NotificationVM.m */; };
+		5C4013C1219ACE54003976B9 /* JavaScriptCoreVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4013C0219ACE54003976B9 /* JavaScriptCoreVM.m */; };
 		73BFCF0C4A40457ACF1D1F65 /* libPods-Review.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E735552343F3324CCE353F2C /* libPods-Review.a */; };
 		96BFB7A2860CD4F8821EEF40 /* libPods-ReviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 420ADEE6BF5D7D88C25C9007 /* libPods-ReviewTests.a */; };
 /* End PBXBuildFile section */
@@ -131,8 +132,6 @@
 		18F1C0D11ED7B4E300DD4E24 /* ReviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F1C0D51ED7B4E300DD4E24 /* ReviewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewUITests.m; sourceTree = "<group>"; };
 		18F1C0D71ED7B4E300DD4E24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18F1C0E31ED7B75900DD4E24 /* ReviewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewModel.h; sourceTree = "<group>"; };
-		18F1C0E41ED7B75900DD4E24 /* ReviewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewModel.m; sourceTree = "<group>"; };
 		18F1C0EC1ED7CC3900DD4E24 /* ReviewList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReviewList.plist; sourceTree = "<group>"; };
 		18F1C0EE1ED7CD4D00DD4E24 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		18F1C0EF1ED7CD4D00DD4E24 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
@@ -150,6 +149,10 @@
 		5C4013B4219AB01D003976B9 /* BaseM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseM.m; sourceTree = "<group>"; };
 		5C4013B6219AB246003976B9 /* ConFunc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConFunc.h; sourceTree = "<group>"; };
 		5C4013B7219AB246003976B9 /* ConFunc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConFunc.m; sourceTree = "<group>"; };
+		5C4013BC219AC7F9003976B9 /* NotificationVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationVM.h; sourceTree = "<group>"; };
+		5C4013BD219AC7F9003976B9 /* NotificationVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationVM.m; sourceTree = "<group>"; };
+		5C4013BF219ACE54003976B9 /* JavaScriptCoreVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JavaScriptCoreVM.h; sourceTree = "<group>"; };
+		5C4013C0219ACE54003976B9 /* JavaScriptCoreVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JavaScriptCoreVM.m; sourceTree = "<group>"; };
 		6735F191D0713D527C602580 /* Pods-ReviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D773890688DBC6980659C1B /* Pods-ReviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.release.xcconfig"; sourceTree = "<group>"; };
 		C96C3BDA85D1C6A780AFF396 /* libPods-ReviewUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReviewUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +223,10 @@
 				183B7662217BA2330056B3B1 /* MainVM.m */,
 				183B7667217BB6980056B3B1 /* DetailVM.h */,
 				183B7668217BB6980056B3B1 /* DetailVM.m */,
+				5C4013BC219AC7F9003976B9 /* NotificationVM.h */,
+				5C4013BD219AC7F9003976B9 /* NotificationVM.m */,
+				5C4013BF219ACE54003976B9 /* JavaScriptCoreVM.h */,
+				5C4013C0219ACE54003976B9 /* JavaScriptCoreVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -261,8 +268,6 @@
 		183B75F9217B5D540056B3B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				18F1C0E31ED7B75900DD4E24 /* ReviewModel.h */,
-				18F1C0E41ED7B75900DD4E24 /* ReviewModel.m */,
 				183B7664217BAEB80056B3B1 /* MainCellM.h */,
 				183B7665217BAEB80056B3B1 /* MainCellM.m */,
 			);
@@ -342,7 +347,6 @@
 			children = (
 				183B7647217B63710056B3B1 /* Category */,
 				183B763C217B63710056B3B1 /* ViewModel */,
-				183B764A217B63710056B3B1 /* Model */,
 				183B764D217B63710056B3B1 /* View */,
 			);
 			path = QSPMVVM;
@@ -386,6 +390,7 @@
 		183B764D217B63710056B3B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				183B764A217B63710056B3B1 /* Model */,
 				183B764E217B63710056B3B1 /* QSPView.m */,
 				183B764F217B63710056B3B1 /* QSPTableViewHeaderView.h */,
 				183B7650217B63710056B3B1 /* QSPTableViewCell.m */,
@@ -700,6 +705,7 @@
 				183B765C217B63710056B3B1 /* QSPTableViewSectionM.m in Sources */,
 				18F1C0B81ED7B4E300DD4E24 /* MainViewController.m in Sources */,
 				183D688721757F83006F0CC4 /* Ticket.m in Sources */,
+				5C4013BE219AC7F9003976B9 /* NotificationVM.m in Sources */,
 				18F1C0B51ED7B4E300DD4E24 /* AppDelegate.m in Sources */,
 				183B762C217B5E680056B3B1 /* CommonTableViewCell.m in Sources */,
 				183B7666217BAEB80056B3B1 /* MainCellM.m in Sources */,
@@ -708,7 +714,7 @@
 				183B7660217B63710056B3B1 /* QSPTableViewHeaderView.m in Sources */,
 				183B7656217B63710056B3B1 /* QSPScrollViewVM.m in Sources */,
 				183B7657217B63710056B3B1 /* QSPViewVM.m in Sources */,
-				18F1C0E51ED7B75900DD4E24 /* ReviewModel.m in Sources */,
+				5C4013C1219ACE54003976B9 /* JavaScriptCoreVM.m in Sources */,
 				183B765D217B63710056B3B1 /* QSPView.m in Sources */,
 				18F1C0F01ED7CD4D00DD4E24 /* DetailViewController.m in Sources */,
 			);
