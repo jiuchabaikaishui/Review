@@ -25,28 +25,7 @@
     
     return _url;
 }
-- (RACCommand *)loadCommand {
-    if (_loadCommand == nil) {
-        _loadCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-                [subscriber sendNext:input];
-                
-                return [RACDisposable disposableWithBlock:^{
-                    [subscriber sendCompleted];
-                }];
-            }];
-        }];
-    }
-    
-    return _loadCommand;
-}
-- (RACCommand *)callCommand {
-    if (_callCommand == nil) {
-        _callCommand = [self emptyCommand];
-    }
-    
-    return _callCommand;
-}
+
 - (RACSignal *)showSignal {
     if (_showSignal == nil) {
         @weakify(self);

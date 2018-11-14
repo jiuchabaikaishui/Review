@@ -11,18 +11,13 @@
 #import <objc/runtime.h>
 #import "JavaScriptCoreVM.h"
 
-#define Row_Count               2
-#define Screen_Width            [UIScreen mainScreen].bounds.size.width
-#define Screen_Height           [UIScreen mainScreen].bounds.size.height
-#define Button_Height           50
-
 @interface JavaScriptCoreViewController () <UIWebViewDelegate>
 
 @property (strong, nonatomic) JavaScriptCoreVM *vm;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIButton *loadB;
 @property (weak, nonatomic) IBOutlet UIButton *callB;
-@property (strong,nonatomic) JSContext *context;
+@property (strong, nonatomic) JSContext *context;
 
 @end
 
@@ -37,6 +32,7 @@
     return _vm;
 }
 
+#pragma mark - 控制器周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -52,23 +48,15 @@
 - (void)loadBAction:(UIButton *)sender {
     [self.context evaluateScript:@"alert('你好！');"];
 }
+- (void)callBAction:(UIButton *)sender {
+    JSValue *callBack = self.context[@"callback"];
+    [callBack callWithArguments:@[@"大家好！"]];
+}
 - (void)bindVM {
-    self.loadB.rac_command = self.vm.loadCommand;
-    self.callB.rac_command = self.vm.callCommand;
+    [self.loadB addTarget:self action:@selector(loadBAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.callB addTarget:self action:@selector(callBAction:) forControlEvents:UIControlEventTouchUpInside];
     
     @weakify(self);
-    [self.vm.loadCommand.executionSignals subscribeNext:^(RACSignal *x) {
-        @strongify(self);
-        [self.context evaluateScript:@"alert('你好！');"];
-    }];
-    [self.vm.callCommand.executionSignals subscribeNext:^(RACSignal *x) {
-        @strongify(self);
-        JSValue *callBack = self.context[@"callback"];
-        [callBack callWithArguments:@[@"大家好！"]];
-        [x subscribeNext:^(id  _Nullable x) {
-            DebugLog(@"---------%@", x);
-        }];
-    }];
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.vm.url]];
     
@@ -152,7 +140,7 @@
     }
 }
 
-#pragma mark - <JSIneract>代理方法
+#pragma mark - JS调用方法
 - (void)showMessage:(NSString *)message
 {
     NSLog(@"current:%@",[NSThread currentThread]);// 子线程
@@ -172,13 +160,16 @@
 - (void)doSomethingThenCallBack:(NSString *)message
 {
     UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    @weakify(self);
     [alertCtr addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        @strongify(self);
         textField.placeholder = @"请输入传入的数据!";
         [textField addTarget:self action:@selector(textFieldChange:) forControlEvents:UIControlEventEditingChanged];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [alertCtr addAction:cancel];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
         UITextField *textField = [alertCtr.textFields firstObject];
         JSValue *callback = self.context[@"callback"];
         [callback callWithArguments:@[textField.text]];
@@ -186,6 +177,7 @@
     [alertCtr addAction:ok];
     ok.enabled = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
+        @strongify(self);
         [self presentViewController:alertCtr animated:YES completion:nil];
     });
 }
