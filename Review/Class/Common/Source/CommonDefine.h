@@ -15,6 +15,7 @@
 #import "CommonTableViewCell.h"
 #import "CommonTableViewSectionVM.h"
 #import "CommonTableViewHeaderView.h"
+#import "CommonTableViewVM.h"
 #import "UITableView+QSPMVVM.h"
 
 

@@ -9,9 +9,11 @@
 #import "DetailViewController.h"
 #import <objc/runtime.h>
 #import "SampleBaseViewController.h"
+#import "Masonry.h"
 
 @interface DetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *button;
 
@@ -58,7 +60,16 @@
 }
 - (void)settingUI
 {
-    
+    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        if (@available(iOS 11.0, *)) {
+            make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+            make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+        } else {
+            make.left.right.equalTo(self.view);
+        }
+        make.top.equalTo(self.label.mas_bottom).offset(8.0);
+        make.bottom.equalTo(self.button.mas_top).offset(-8.0);
+    }];
 }
 
 - (void)bindVM {
@@ -68,7 +79,7 @@
     @weakify(self);
     [self.vm.command.executionSignals subscribeNext:^(id  _Nullable x) {
         @strongify(self);
-        if (self.vm.sampleClass) {
+        if (self.vm.sampleClass && (![self.vm.sampleClass isEqualToString:@""])) {
             UIViewController *nextCtr = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:self.vm.sampleClass];
             [self.navigationController pushViewController:nextCtr animated:YES];
         }

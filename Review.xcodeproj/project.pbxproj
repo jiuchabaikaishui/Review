@@ -48,6 +48,10 @@
 		5C4013B8219AB246003976B9 /* ConFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4013B7219AB246003976B9 /* ConFunc.m */; };
 		5C4013BE219AC7F9003976B9 /* NotificationVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4013BD219AC7F9003976B9 /* NotificationVM.m */; };
 		5C4013C1219ACE54003976B9 /* JavaScriptCoreVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4013C0219ACE54003976B9 /* JavaScriptCoreVM.m */; };
+		5C6D9DAF22C4761700880CCC /* BubbleSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D9DAE22C4761700880CCC /* BubbleSortViewController.m */; };
+		5C6D9DB222C47B0100880CCC /* CoordinateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D9DB122C47B0100880CCC /* CoordinateView.m */; };
+		5C6D9DB522C60A7200880CCC /* BubbleSortVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D9DB422C60A7200880CCC /* BubbleSortVM.m */; };
+		5CE27A9922C9F68A008727C7 /* CommonTableViewVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27A9822C9F68A008727C7 /* CommonTableViewVM.m */; };
 		73BFCF0C4A40457ACF1D1F65 /* libPods-Review.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E735552343F3324CCE353F2C /* libPods-Review.a */; };
 		96BFB7A2860CD4F8821EEF40 /* libPods-ReviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 420ADEE6BF5D7D88C25C9007 /* libPods-ReviewTests.a */; };
 /* End PBXBuildFile section */
@@ -153,6 +157,14 @@
 		5C4013BD219AC7F9003976B9 /* NotificationVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationVM.m; sourceTree = "<group>"; };
 		5C4013BF219ACE54003976B9 /* JavaScriptCoreVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JavaScriptCoreVM.h; sourceTree = "<group>"; };
 		5C4013C0219ACE54003976B9 /* JavaScriptCoreVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JavaScriptCoreVM.m; sourceTree = "<group>"; };
+		5C6D9DAD22C4761700880CCC /* BubbleSortViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleSortViewController.h; sourceTree = "<group>"; };
+		5C6D9DAE22C4761700880CCC /* BubbleSortViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleSortViewController.m; sourceTree = "<group>"; };
+		5C6D9DB022C47B0100880CCC /* CoordinateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CoordinateView.h; path = Review/Class/Controller/CoordinateView.h; sourceTree = SOURCE_ROOT; };
+		5C6D9DB122C47B0100880CCC /* CoordinateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CoordinateView.m; path = Review/Class/Controller/CoordinateView.m; sourceTree = SOURCE_ROOT; };
+		5C6D9DB322C60A7100880CCC /* BubbleSortVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleSortVM.h; sourceTree = "<group>"; };
+		5C6D9DB422C60A7200880CCC /* BubbleSortVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleSortVM.m; sourceTree = "<group>"; };
+		5CE27A9722C9F68A008727C7 /* CommonTableViewVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTableViewVM.h; sourceTree = "<group>"; };
+		5CE27A9822C9F68A008727C7 /* CommonTableViewVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewVM.m; sourceTree = "<group>"; };
 		6735F191D0713D527C602580 /* Pods-ReviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D773890688DBC6980659C1B /* Pods-ReviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.release.xcconfig"; sourceTree = "<group>"; };
 		C96C3BDA85D1C6A780AFF396 /* libPods-ReviewUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReviewUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +239,8 @@
 				5C4013BD219AC7F9003976B9 /* NotificationVM.m */,
 				5C4013BF219ACE54003976B9 /* JavaScriptCoreVM.h */,
 				5C4013C0219ACE54003976B9 /* JavaScriptCoreVM.m */,
+				5C6D9DB322C60A7100880CCC /* BubbleSortVM.h */,
+				5C6D9DB422C60A7200880CCC /* BubbleSortVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -261,6 +275,8 @@
 				18F1C0F21ED919BA00DD4E24 /* NotificationViewController.m */,
 				18DE76EA1EDEAB420095997C /* JavaScriptCoreViewController.h */,
 				18DE76EB1EDEAB420095997C /* JavaScriptCoreViewController.m */,
+				5C6D9DAD22C4761700880CCC /* BubbleSortViewController.h */,
+				5C6D9DAE22C4761700880CCC /* BubbleSortViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,6 +293,8 @@
 		183B75FA217B5D540056B3B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5C6D9DB022C47B0100880CCC /* CoordinateView.h */,
+				5C6D9DB122C47B0100880CCC /* CoordinateView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +334,8 @@
 				183B7600217B5E680056B3B1 /* CommonTableViewSectionVM.m */,
 				183B75FF217B5E680056B3B1 /* CommonTableViewCellVM.h */,
 				183B7601217B5E680056B3B1 /* CommonTableViewCellVM.m */,
+				5CE27A9722C9F68A008727C7 /* CommonTableViewVM.h */,
+				5CE27A9822C9F68A008727C7 /* CommonTableViewVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -345,6 +365,7 @@
 		183B763B217B63710056B3B1 /* QSPMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				183B764A217B63710056B3B1 /* Model */,
 				183B7647217B63710056B3B1 /* Category */,
 				183B763C217B63710056B3B1 /* ViewModel */,
 				183B764D217B63710056B3B1 /* View */,
@@ -384,21 +405,21 @@
 				183B764B217B63710056B3B1 /* QSPTableViewSectionM.h */,
 				183B764C217B63710056B3B1 /* QSPTableViewSectionM.m */,
 			);
-			path = Model;
+			name = Model;
+			path = View/Model;
 			sourceTree = "<group>";
 		};
 		183B764D217B63710056B3B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				183B764A217B63710056B3B1 /* Model */,
+				183B7652217B63710056B3B1 /* QSPView.h */,
 				183B764E217B63710056B3B1 /* QSPView.m */,
 				183B764F217B63710056B3B1 /* QSPTableViewHeaderView.h */,
-				183B7650217B63710056B3B1 /* QSPTableViewCell.m */,
-				183B7651217B63710056B3B1 /* QSPTableViewFooterView.m */,
-				183B7652217B63710056B3B1 /* QSPView.h */,
 				183B7653217B63710056B3B1 /* QSPTableViewHeaderView.m */,
 				183B7654217B63710056B3B1 /* QSPTableViewFooterView.h */,
+				183B7651217B63710056B3B1 /* QSPTableViewFooterView.m */,
 				183B7655217B63710056B3B1 /* QSPTableViewCell.h */,
+				183B7650217B63710056B3B1 /* QSPTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -562,6 +583,8 @@
 				TargetAttributes = {
 					18F1C0AC1ED7B4E300DD4E24 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = CBB7T9SG3B;
+						ProvisioningStyle = Automatic;
 					};
 					18F1C0C51ED7B4E300DD4E24 = {
 						CreatedOnToolsVersion = 7.3;
@@ -578,6 +601,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -684,6 +708,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C6D9DB522C60A7200880CCC /* BubbleSortVM.m in Sources */,
 				18DE76EF1EDEB1630095997C /* SampleBaseViewController.m in Sources */,
 				183B765F217B63710056B3B1 /* QSPTableViewFooterView.m in Sources */,
 				183B7663217BA2330056B3B1 /* MainVM.m in Sources */,
@@ -703,13 +728,16 @@
 				5C4013B8219AB246003976B9 /* ConFunc.m in Sources */,
 				183B762B217B5E680056B3B1 /* CommonM.m in Sources */,
 				183B765C217B63710056B3B1 /* QSPTableViewSectionM.m in Sources */,
+				5CE27A9922C9F68A008727C7 /* CommonTableViewVM.m in Sources */,
 				18F1C0B81ED7B4E300DD4E24 /* MainViewController.m in Sources */,
+				5C6D9DB222C47B0100880CCC /* CoordinateView.m in Sources */,
 				183D688721757F83006F0CC4 /* Ticket.m in Sources */,
 				5C4013BE219AC7F9003976B9 /* NotificationVM.m in Sources */,
 				18F1C0B51ED7B4E300DD4E24 /* AppDelegate.m in Sources */,
 				183B762C217B5E680056B3B1 /* CommonTableViewCell.m in Sources */,
 				183B7666217BAEB80056B3B1 /* MainCellM.m in Sources */,
 				18F1C0B21ED7B4E300DD4E24 /* main.m in Sources */,
+				5C6D9DAF22C4761700880CCC /* BubbleSortViewController.m in Sources */,
 				5C4013B2219A85E2003976B9 /* BaseVM.m in Sources */,
 				183B7660217B63710056B3B1 /* QSPTableViewHeaderView.m in Sources */,
 				183B7656217B63710056B3B1 /* QSPScrollViewVM.m in Sources */,
@@ -858,6 +886,9 @@
 			baseConfigurationReference = 0CA5C172A5A22BDC9D20E793 /* Pods-Review.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CBB7T9SG3B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Review/Class/Common/Source/PrefixHeader.pch;
 				INFOPLIST_FILE = Review/Class/Other/System/Info.plist;
@@ -870,6 +901,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qq.781849568.Review;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -878,6 +910,9 @@
 			baseConfigurationReference = 2F4B22FFF908683B362871CD /* Pods-Review.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CBB7T9SG3B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Review/Class/Common/Source/PrefixHeader.pch;
 				INFOPLIST_FILE = Review/Class/Other/System/Info.plist;
@@ -890,6 +925,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qq.781849568.Review;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

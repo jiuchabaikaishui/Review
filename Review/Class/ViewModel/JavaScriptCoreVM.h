@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSURL *url;
 
+@property (nonatomic, strong) RACCommand *loadCommand;
+@property (nonatomic, strong) RACCommand *callCommand;
+
 @property (nonatomic, strong) RACSignal *showSignal;
 @property (nonatomic, strong) RACSignal *doSignal;
 @property (nonatomic, strong) RACSignal *mixSignal;

@@ -40,7 +40,7 @@
 
 + (QSPTableViewVM *)create:(void (^)(QSPTableViewVM *vm))block {
     if (block) {
-        QSPTableViewVM *vm = [[QSPTableViewVM alloc] init];
+        QSPTableViewVM *vm = [[self.class alloc] init];
         block(vm);
         
         return vm;
@@ -176,7 +176,6 @@
     return ^(CGFloat height) {
         self.sectionHeaderHeightSet = height;
         
-        
         return self;
     };
 }
@@ -236,7 +235,7 @@
     return [self.sectionVMs objectAtIndex:section];
 }
 - (id)rowVMWithIndexPath:(NSIndexPath *)indexPath {
-    return [[self.sectionVMs objectAtIndex:indexPath.section] rowModelWithRow:indexPath.row];
+    return [[self.sectionVMs objectAtIndex:indexPath.section] rowVMWithRow:indexPath.row];
 }
 - (NSInteger)sectionOfSctionVM:(QSPTableViewSectionVM *)vm {
     return [self.sectionVMs indexOfObject:vm];
@@ -259,7 +258,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSPTableViewCellVM *rowMV = [self rowVMWithIndexPath:indexPath];
     Class cellClass = self.cellClass ? self.cellClass : (rowMV.cellClass ? rowMV.cellClass : QSPTableViewCell.class);
-    NSString *identifier = NSStringFromClass(cellClass);
+    static NSString *identifier;
+    identifier = NSStringFromClass(cellClass);
     QSPTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[cellClass alloc] initWithStyle:rowMV.style reuseIdentifier:identifier];

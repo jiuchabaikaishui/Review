@@ -184,7 +184,7 @@
     };
 }
 
-- (QSPTableViewCellVM *)rowModelWithRow:(NSInteger)row {
+- (id)rowVMWithRow:(NSInteger)row {
     return [self.rowVMs objectAtIndex:row];
 }
 - (NSInteger)rowOfCellVM:(QSPTableViewCellVM *)vm {

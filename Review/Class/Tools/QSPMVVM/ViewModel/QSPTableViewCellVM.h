@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 
 #define K_QSPScreen_Width                           [UIScreen mainScreen].bounds.size.width
+#define K_QSPScreen_Height                          [UIScreen mainScreen].bounds.size.height
+#define K_QSPISIphoneX                                 (UIApplication.sharedApplication.statusBarFrame.size.height > 20)
 #define K_QSPTableViewHeaderFooterViewFont          [UIFont systemFontOfSize:13]
 #define K_QSPTableViewCellTitleFont                 [UIFont systemFontOfSize:17]
 #define K_QSPTableViewCellDetailFont                [UIFont systemFontOfSize:12]

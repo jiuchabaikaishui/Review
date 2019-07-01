@@ -11,7 +11,10 @@
 
 @interface CommonTableViewSectionVM : QSPTableViewSectionVM
 
-@property (assign, nonatomic, readonly) CGRect headerTitleRect;
-@property (assign, nonatomic, readonly) CGRect headerDetailRect;
+@property (assign, nonatomic, readonly) CGFloat headerTitleHeight;
+@property (assign, nonatomic, readonly) CGFloat headerDetailHeight;
+@property (assign, nonatomic, readonly) CGFloat headerTitleLandscapeHeight;
+@property (assign, nonatomic, readonly) CGFloat headerDetailLandscapeHeight;
+@property (strong, nonatomic, readonly) id headerLandscapeHeight;
 
 @end

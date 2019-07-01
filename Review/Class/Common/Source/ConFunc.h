@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  字符串判空
  */
-+ (BOOL)blankOfStr:(NSString *)str;
++ (BOOL)isBlank:(NSString *)str;
 
 @end
 

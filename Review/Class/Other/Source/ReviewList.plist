@@ -4,21 +4,26 @@
 <array>
 	<dict>
 		<key>title</key>
-		<string>NSNotification</string>
-		<key>detail</key>
-		<string>NSNotification是iOS中一个调度消息通知的类，采用单例模式设计，在程序中实现传值、回调等地方应用很广。</string>
-		<key>explain</key>
-		<string>NSNotification采用单例的设计模式,如果没关系就用通知.,通知是多对多,而且发送的只管发送,接收的只管接收。当需要跨越多个控制器进行传值的时候,notification是一个最方便的选择,使用完毕需要及时注销。</string>
-		<key>sampleClass</key>
-		<string>NotificationViewController</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>JavaScriptCore</string>
-		<key>detail</key>
-		<string>JavaScriptCore框架其实只是基于webkit中以C/C++实现的JavaScriptCore的一个包装，该框架让Objective-C和JavaScript代码直接的交互变得更加的简单方便。</string>
-		<key>explain</key>
-		<string>JSContext
+		<string>基础</string>
+		<key>rows</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>NSNotification</string>
+				<key>detail</key>
+				<string>NSNotification是iOS中一个调度消息通知的类，采用单例模式设计，在程序中实现传值、回调等地方应用很广。</string>
+				<key>explain</key>
+				<string>NSNotification采用单例的设计模式,如果没关系就用通知.,通知是多对多,而且发送的只管发送,接收的只管接收。当需要跨越多个控制器进行传值的时候,notification是一个最方便的选择,使用完毕需要及时注销。</string>
+				<key>sampleClass</key>
+				<string>NotificationViewController</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>JavaScriptCore</string>
+				<key>detail</key>
+				<string>JavaScriptCore框架其实只是基于webkit中以C/C++实现的JavaScriptCore的一个包装，该框架让Objective-C和JavaScript代码直接的交互变得更加的简单方便。</string>
+				<key>explain</key>
+				<string>JSContext
 
 JS执行的环境，同时也通过JSVirtualMachine管理着所有对象的生命周期，每个JSValue都和JSContext相关联并且强引用context。
 
@@ -37,8 +42,39 @@ JS运行的虚拟机，有独立的堆空间和垃圾回收机制。
 JSExport
 
 一个协议，如果JS对象想直接调用OC对象里面的方法和属性，那么这个OC对象只要实现这个JSExport协议就可以了。</string>
-		<key>sampleClass</key>
-		<string>JavaScriptCoreViewController</string>
+				<key>sampleClass</key>
+				<string>JavaScriptCoreViewController</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>运行时</string>
+		<key>rows</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>GCD</string>
+		<key>rows</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>算法</string>
+		<key>rows</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>冒泡排序</string>
+				<key>detail</key>
+				<string>冒泡排序遍历若干次要排序的数列，每次遍历时，都会从前往后依次的比较相邻两个数的大小；然后按照升降序规则判断是否交换它们的位置。</string>
+				<key>explain</key>
+				<string></string>
+				<key>sampleClass</key>
+				<string>BubbleSortViewController</string>
+			</dict>
+		</array>
 	</dict>
 </array>
 </plist>

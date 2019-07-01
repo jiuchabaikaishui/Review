@@ -39,7 +39,7 @@ typedef void (^QSPSetRowVMBlock)(id);
 - (QSPTableViewSectionVM * (^)(NSString *))headerDetailSet;
 - (QSPTableViewSectionVM * (^)(NSString *))footerDetailSet;
 
-- (QSPTableViewCellVM *)rowModelWithRow:(NSInteger)row;
+- (id)rowVMWithRow:(NSInteger)row;
 - (NSInteger)rowOfCellVM:(QSPTableViewCellVM *)vm;
 
 @end

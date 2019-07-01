@@ -15,36 +15,20 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.title = @"iOS复习";
-        self.tableViewVM = [QSPTableViewVM create:^(QSPTableViewVM *vm) {
-            vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
-                sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
-                    model.titleSet(@"基础");
-                });
-                NSArray *arr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ReviewList" ofType:@"plist"]];
-                for (NSDictionary *dic in arr) {
-                    sectionVM.addRowVMCreate(CommonTableViewCellVM.class, ^(CommonTableViewCellVM *cellVM){
-                        cellVM.dataMSet([MainCellM mainMWithDic:dic]);
+        self.tableViewVM = [CommonTableViewVM create:^(QSPTableViewVM *vm) {
+            NSArray *arr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ReviewList" ofType:@"plist"]];
+            for (NSDictionary *section in arr) {
+                vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
+                    sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
+                        model.titleSet(section[@"title"]).detailSet(section[@"detail"]);
                     });
-                }
-            });
-            
-            vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
-                sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
-                    model.titleSet(@"运行时");
+                    for (NSDictionary *row in section[@"rows"]) {
+                        sectionVM.addRowVMCreate(CommonTableViewCellVM.class, ^(CommonTableViewCellVM *cellVM){
+                            cellVM.dataMSet([MainCellM mainMWithDic:row]);
+                        });
+                    }
                 });
-            });
-            
-            vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
-                sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
-                    model.titleSet(@"GCD");
-                });
-            });
-            
-            vm.addSectionVMCreate(CommonTableViewSectionVM.class, ^(CommonTableViewSectionVM *sectionVM){
-                sectionVM.dataMCreate(CommonM.class, ^(CommonM *model){
-                    model.titleSet(@"算法");
-                });
-            });
+            }
         }];
     }
     

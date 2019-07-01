@@ -30,6 +30,8 @@
             self.tableFooterView = vm.tableFooterView;
         }
         
+        [self reloadData];
+        
         return self;
     };
 }

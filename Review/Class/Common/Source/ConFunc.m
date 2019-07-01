@@ -10,7 +10,7 @@
 
 @implementation ConFunc
 
-+ (BOOL)blankOfStr:(NSString *)str {
++ (BOOL)isBlank:(NSString *)str {
     if (str == nil || str == NULL)
         return YES;
     

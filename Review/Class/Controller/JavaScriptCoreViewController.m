@@ -39,38 +39,73 @@
     [self settingUI];
     [self bindVM];
 }
+- (void)dealloc {
+    self.context[@"OC"] = nil;
+    self.context = nil;
+}
 
 #pragma mark - 自定义方法
 - (void)settingUI
 {
     
 }
-- (void)loadBAction:(UIButton *)sender {
-    [self.context evaluateScript:@"alert('你好！');"];
-}
-- (void)callBAction:(UIButton *)sender {
-    JSValue *callBack = self.context[@"callback"];
-    [callBack callWithArguments:@[@"大家好！"]];
-}
 - (void)bindVM {
-    [self.loadB addTarget:self action:@selector(loadBAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.callB addTarget:self action:@selector(callBAction:) forControlEvents:UIControlEventTouchUpInside];
-    
     @weakify(self);
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.vm.url]];
     
-    [self.vm.showSignal subscribeNext:^(NSString *x) {
+    self.loadB.rac_command = self.vm.loadCommand;
+    [self.vm.loadCommand.executionSignals subscribeNext:^(id  _Nullable x) {
         @strongify(self);
-        [self showMessage:x];
+        [self.context evaluateScript:@"setTimeout(function(){alert('你好！');}, 1)"];
     }];
-    [self.vm.doSignal subscribeNext:^(NSString *x) {
+    
+    self.callB.rac_command = self.vm.callCommand;
+    [self.vm.callCommand.executionSignals subscribeNext:^(id  _Nullable x) {
         @strongify(self);
-        [self doSomethingThenCallBack:x];
+        JSValue *callBack = self.context[@"callback"];
+        [callBack callWithArguments:@[@"大家好！"]];
     }];
-    [self.vm.mixSignal subscribeNext:^(NSArray *x) {
+    
+    [self.vm.showSignal subscribeNext:^(RACTuple *x) {
+        NSLog(@"current:%@",[NSThread currentThread]);// 子线程
+        dispatch_async(dispatch_get_main_queue(), ^{
+            @strongify(self);
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"JS 调用了 OC" message:x.first preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:cancel];
+            [self presentViewController:alert animated:YES completion:nil];
+        });
+    }];
+    [self.vm.mixSignal subscribeNext:^(RACTuple *x) {
         @strongify(self);
-        [self mixA:[x firstObject] andB:[x lastObject]];
+        NSLog(@"A:%@ and B:%@",x.first,x.second);
+        JSValue *alertCallback = self.context[@"alertCallback"];
+        [alertCallback callWithArguments:@[x.first,x.second]];
+    }];
+    [self.vm.doSignal subscribeNext:^(RACTuple *x) {
+        @strongify(self);
+        UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        @weakify(self);
+        [alertCtr addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            @strongify(self);
+            textField.placeholder = @"请输入传入的数据!";
+            [textField addTarget:self action:@selector(textFieldChange:) forControlEvents:UIControlEventEditingChanged];
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alertCtr addAction:cancel];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            @strongify(self);
+            UITextField *textField = [alertCtr.textFields firstObject];
+            JSValue *callback = self.context[@"callback"];
+            [callback callWithArguments:@[textField.text]];
+        }];
+        [alertCtr addAction:ok];
+        ok.enabled = NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            @strongify(self);
+            [self presentViewController:alertCtr animated:YES completion:nil];
+        });
     }];
 }
 
@@ -90,7 +125,8 @@
     };
     //注入JS需要的“OC”对象
     K_WeakSelf
-    self.context[@"OC"] = self.vm;
+    __weak typeof(self.vm) oc = self.vm;
+    self.context[@"OC"] = oc;
     self.context[@"showMessage"] = ^(NSString *message){
         UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
@@ -138,48 +174,6 @@
     {
         okAction.enabled = NO;
     }
-}
-
-#pragma mark - JS调用方法
-- (void)showMessage:(NSString *)message
-{
-    NSLog(@"current:%@",[NSThread currentThread]);// 子线程
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"JS 调用了 OC" message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-        [alert addAction:cancel];
-        [self presentViewController:alert animated:YES completion:nil];
-    });
-}
-- (void)mixA:(NSString *)aString andB:(NSString *)bString
-{
-    NSLog(@"A:%@ and B:%@",aString,bString);
-    JSValue *alertCallback = self.context[@"alertCallback"];
-    [alertCallback callWithArguments:@[aString,bString]];
-}
-- (void)doSomethingThenCallBack:(NSString *)message
-{
-    UIAlertController *alertCtr = [UIAlertController alertControllerWithTitle:@"提示" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    @weakify(self);
-    [alertCtr addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        @strongify(self);
-        textField.placeholder = @"请输入传入的数据!";
-        [textField addTarget:self action:@selector(textFieldChange:) forControlEvents:UIControlEventEditingChanged];
-    }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    [alertCtr addAction:cancel];
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        @strongify(self);
-        UITextField *textField = [alertCtr.textFields firstObject];
-        JSValue *callback = self.context[@"callback"];
-        [callback callWithArguments:@[textField.text]];
-    }];
-    [alertCtr addAction:ok];
-    ok.enabled = NO;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        @strongify(self);
-        [self presentViewController:alertCtr animated:YES completion:nil];
-    });
 }
 
 @end

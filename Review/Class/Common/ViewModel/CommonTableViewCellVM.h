@@ -11,7 +11,12 @@
 
 @interface CommonTableViewCellVM : QSPTableViewCellVM
 
-@property (assign, nonatomic, readonly) CGRect titleRect;
-@property (assign, nonatomic, readonly) CGRect detailRect;
+@property (assign, nonatomic, readonly) CGFloat titleHeight;
+@property (assign, nonatomic, readonly) CGFloat detailHeight;
+@property (assign, nonatomic, readonly) CGFloat titleLandscapeHeight;
+@property (assign, nonatomic, readonly) CGFloat detailLandscapeHeight;
+@property (strong, nonatomic, readonly) id cellLandscapeHeight;
+
+- (void)bindData;
 
 @end

@@ -11,48 +11,72 @@
 
 @implementation CommonTableViewSectionVM
 
-- (void)setHeaderTitleRect:(CGRect)titleRect {
-    _headerTitleRect = titleRect;
+- (void)setHeaderTitleHeight:(CGFloat)headerTitleHeight {
+    _headerTitleHeight = headerTitleHeight;
 }
-- (void)setHeaderDetailRect:(CGRect)detailRect {
-    _headerDetailRect = detailRect;
+- (void)setHeaderDetailHeight:(CGFloat)headerDetailHeight {
+    _headerDetailHeight = headerDetailHeight;
+}
+- (void)setHeaderTitleLandscapeHeight:(CGFloat)headerTitleLandscapeHeight {
+    _headerTitleLandscapeHeight = headerTitleLandscapeHeight;
+}
+- (void)setHeaderDetailLandscapeHeight:(CGFloat)headerDetailLandscapeHeight {
+    _headerDetailLandscapeHeight = headerDetailLandscapeHeight;
+}
+- (void)setHeaderLandscapeHeight:(id)headerLandscapeHeight {
+    _headerLandscapeHeight = headerLandscapeHeight;
 }
 - (QSPViewVM *(^)(id))dataMSet {
     return ^(CommonM *data){
         super.dataMSet(data);
         
+        CGFloat screenW = 0.0;
+        if (K_QSPScreen_Width < K_QSPScreen_Height) {
+            screenW = K_QSPScreen_Width;
+        } else {
+            screenW = K_QSPScreen_Height;
+        }
         CGFloat X = 15;
         CGFloat Y = 4;
-        CGFloat W = K_QSPScreen_Width - 2*X;
-        CGFloat H = [data.title boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
-        self.headerTitleRect = CGRectMake(X, Y, W, H);
+        CGFloat W = screenW - 2*X;
+        CGFloat H = 0;
         
-//        CGFloat detail_H = [data.detail boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
-//        if ([ConFunc blankOfStr:data.title]) {
-//            if ([ConFunc blankOfStr:data.detail]) {
-//            } else {
-//                self.headerDetailRect = CGRectMake(X, Y, W, detail_H);
-//
-//                self.headerHeightSet(Y + detail_H + 4);
-//            }
-//        } else {
-//            self.headerTitleRect = CGRectMake(X, Y, W, H);
-//
-//            if ([ConFunc blankOfStr:data.detail]) {
-//                self.headerHeightSet(Y + H + 4);
-//            } else {
-//                Y = Y + H + 8;
-//                self.headerDetailRect = CGRectMake(X, Y, W, detail_H);
-//
-//                self.headerHeightSet(Y + detail_H + 4);
-//            }
-//        }
-        
+        if (data.title && (![data.title isEqualToString:@""])) {
+            H = [data.title boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
+            self.headerTitleHeight = H;
+        }
         Y = Y + H + 8;
-        H = [data.detail boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
-        self.headerDetailRect = CGRectMake(X, Y, W, H);
+        if (data.detail && (![data.detail isEqualToString:@""])) {
+            H = [data.detail boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
+            self.headerDetailHeight = H;
+            Y = Y + H + 4;
+        }
         
-        self.headerHeightSet(Y + H + 4);
+        self.headerHeightSet(Y);
+        
+        
+        if (K_QSPScreen_Width > K_QSPScreen_Height) {
+            screenW = K_QSPScreen_Width;
+        } else {
+            screenW = K_QSPScreen_Height;
+        }
+        X = 15;
+        Y = 4;
+        W = screenW - 2*X - (K_QSPISIphoneX ? 88.0 : 0.0);
+        H = 0;
+        
+        if (data.title && (![data.title isEqualToString:@""])) {
+            H = [data.title boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
+            self.headerTitleLandscapeHeight = H;
+        }
+        Y = Y + H + 8;
+        if (data.detail && (![data.detail isEqualToString:@""])) {
+            H = [data.detail boundingRectWithSize:CGSizeMake(W, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: K_QSPTableViewHeaderFooterViewFont} context:nil].size.height;
+            self.headerDetailLandscapeHeight = H;
+            Y = Y + H + 4;
+        }
+        
+        self.headerLandscapeHeight = @(Y);
         
         return self;
     };

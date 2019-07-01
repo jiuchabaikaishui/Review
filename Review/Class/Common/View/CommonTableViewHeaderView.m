@@ -7,6 +7,7 @@
 //
 
 #import "CommonTableViewHeaderView.h"
+#import "Masonry.h"
 
 @interface CommonTableViewHeaderView()
 
@@ -23,11 +24,28 @@
         CommonM *commonM = vm.dataM;
         self.titleL.text = commonM.title;
         self.detailL.text = commonM.detail;
-        self.titleL.frame = vm.headerTitleRect;
-        self.detailL.frame = vm.headerDetailRect;
         
         return self;
     };
+}
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CommonTableViewSectionVM *vm = (CommonTableViewSectionVM *)self.sectionVM;
+    [self.titleL mas_updateConstraints:^(MASConstraintMaker *make) {
+        if (K_QSPScreen_Width > K_QSPScreen_Height) {
+            make.height.equalTo(@(vm.headerTitleLandscapeHeight));
+        } else {
+            make.height.equalTo(@(vm.headerTitleHeight));
+        }
+    }];
+    [self.detailL mas_updateConstraints:^(MASConstraintMaker *make) {
+        if (K_QSPScreen_Width > K_QSPScreen_Height) {
+            make.height.equalTo(@(vm.headerDetailLandscapeHeight));
+        } else {
+            make.height.equalTo(@(vm.headerDetailHeight));
+        }
+    }];
 }
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
@@ -37,6 +55,11 @@
         titleL.font = K_QSPTableViewHeaderFooterViewFont;
         [self.contentView addSubview:titleL];
         self.titleL = titleL;
+        [titleL mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(15.0);
+            make.right.equalTo(self.contentView).offset(-15.0);
+            make.top.equalTo(self.contentView).offset(8.0);
+        }];
         
         UILabel *detailL = [[UILabel alloc] init];
         detailL.numberOfLines = 0;
@@ -44,6 +67,11 @@
         detailL.font = K_QSPTableViewHeaderFooterViewFont;
         [self.contentView addSubview:detailL];
         self.detailL = detailL;
+        [detailL mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView).offset(15.0);
+            make.right.equalTo(self.contentView).offset(-15.0);
+            make.bottom.equalTo(self.contentView).offset(-8.0);
+        }];
     }
     
     return self;
