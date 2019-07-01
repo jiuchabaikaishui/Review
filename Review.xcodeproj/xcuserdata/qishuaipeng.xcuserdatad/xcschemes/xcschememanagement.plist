@@ -7,7 +7,11 @@
 		<key>Review.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>5</integer>
+=======
+			<integer>1</integer>
+>>>>>>> c5ad8411bc7ac7df8dd243cf8f1f651d64fd6e12
 		</dict>
 	</dict>
 </dict>
