@@ -70,7 +70,7 @@ JSExport
 				<key>detail</key>
 				<string>冒泡排序遍历若干次要排序的数列，每次遍历时，都会从前往后依次的比较相邻两个数的大小；然后按照升降序规则判断是否交换它们的位置。</string>
 				<key>explain</key>
-				<string></string>
+				<string>BubbleSort.html</string>
 				<key>sampleClass</key>
 				<string>BubbleSortViewController</string>
 			</dict>

@@ -13,13 +13,32 @@
 
 @interface DetailViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) UIWebView *webView;
 
 @end
 
 @implementation DetailViewController
+
+- (UIWebView *)webView {
+    if (_webView == nil) {
+        UIWebView *webView = [[UIWebView alloc] init];
+        [self.view addSubview:webView];
+        _webView = webView;
+        [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.mas_topLayoutGuideBottom);
+            make.bottom.equalTo(self.button.mas_top).offset(-8.0);
+            if (@available(iOS 11.0, *)) {
+                make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+                make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+            } else {
+                make.left.right.equalTo(self.view);
+            }
+        }];
+    }
+    
+    return _webView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,22 +79,20 @@
 }
 - (void)settingUI
 {
-    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        if (@available(iOS 11.0, *)) {
-            make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
-            make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
-        } else {
-            make.left.right.equalTo(self.view);
-        }
-        make.top.equalTo(self.label.mas_bottom).offset(8.0);
-        make.bottom.equalTo(self.button.mas_top).offset(-8.0);
-    }];
+    
 }
 
 - (void)bindVM {
     self.title = self.vm.title;
-    self.textView.text = self.vm.explain;
     self.button.rac_command = self.vm.command;
+    NSString *path = [[NSBundle mainBundle] pathForResource:self.vm.explain ofType:nil];
+    if (path) {
+        NSURL *url = [NSURL URLWithString:path];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:request];
+    } else {
+        [self.webView loadData:[self.vm.explain dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
+    }
     @weakify(self);
     [self.vm.command.executionSignals subscribeNext:^(id  _Nullable x) {
         @strongify(self);

@@ -60,33 +60,16 @@
                                 <rect key="frame" x="16" y="617" width="343" height="30"/>
                                 <state key="normal" title="示例演示"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3ol-mN-cpy">
-                                <rect key="frame" x="0.0" y="101" width="375" height="508"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="说明：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miO-0w-j3r">
-                                <rect key="frame" x="16" y="72" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xWd-7P-0ss" firstAttribute="leading" secondItem="YeQ-VJ-opB" secondAttribute="leadingMargin" id="6vj-kU-WHa"/>
-                            <constraint firstItem="miO-0w-j3r" firstAttribute="top" secondItem="ga9-fl-b13" secondAttribute="bottom" constant="8" id="AgS-2b-G5S"/>
                             <constraint firstItem="xWd-7P-0ss" firstAttribute="trailing" secondItem="YeQ-VJ-opB" secondAttribute="trailingMargin" id="GgA-c0-2Xu"/>
-                            <constraint firstItem="miO-0w-j3r" firstAttribute="trailing" secondItem="YeQ-VJ-opB" secondAttribute="trailingMargin" id="ROg-XZ-LeU"/>
-                            <constraint firstItem="miO-0w-j3r" firstAttribute="leading" secondItem="YeQ-VJ-opB" secondAttribute="leadingMargin" id="b4r-dm-6G3"/>
                             <constraint firstItem="GqG-3G-bH1" firstAttribute="top" secondItem="xWd-7P-0ss" secondAttribute="bottom" constant="20" id="da4-ud-tFf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="xWd-7P-0ss" id="dcJ-fi-1bU"/>
-                        <outlet property="label" destination="miO-0w-j3r" id="FhV-6k-whE"/>
-                        <outlet property="textView" destination="3ol-mN-cpy" id="SUD-dr-dez"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="go3-EF-gaR" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -52,6 +52,8 @@
 		5C6D9DB222C47B0100880CCC /* CoordinateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D9DB122C47B0100880CCC /* CoordinateView.m */; };
 		5C6D9DB522C60A7200880CCC /* BubbleSortVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D9DB422C60A7200880CCC /* BubbleSortVM.m */; };
 		5CE27A9922C9F68A008727C7 /* CommonTableViewVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27A9822C9F68A008727C7 /* CommonTableViewVM.m */; };
+		5CE27A9D22CAFA4B008727C7 /* BubbleSort.html in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27A9C22CAFA4B008727C7 /* BubbleSort.html */; };
+		5CE27AAB22CB4E29008727C7 /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27AAA22CB4E29008727C7 /* SortModel.swift */; };
 		73BFCF0C4A40457ACF1D1F65 /* libPods-Review.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E735552343F3324CCE353F2C /* libPods-Review.a */; };
 		96BFB7A2860CD4F8821EEF40 /* libPods-ReviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 420ADEE6BF5D7D88C25C9007 /* libPods-ReviewTests.a */; };
 /* End PBXBuildFile section */
@@ -165,6 +167,9 @@
 		5C6D9DB422C60A7200880CCC /* BubbleSortVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleSortVM.m; sourceTree = "<group>"; };
 		5CE27A9722C9F68A008727C7 /* CommonTableViewVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTableViewVM.h; sourceTree = "<group>"; };
 		5CE27A9822C9F68A008727C7 /* CommonTableViewVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewVM.m; sourceTree = "<group>"; };
+		5CE27A9C22CAFA4B008727C7 /* BubbleSort.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BubbleSort.html; sourceTree = "<group>"; };
+		5CE27AA722CB4D34008727C7 /* Review-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Review-Bridging-Header.h"; sourceTree = "<group>"; };
+		5CE27AAA22CB4E29008727C7 /* SortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
 		6735F191D0713D527C602580 /* Pods-ReviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D773890688DBC6980659C1B /* Pods-ReviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.release.xcconfig"; sourceTree = "<group>"; };
 		C96C3BDA85D1C6A780AFF396 /* libPods-ReviewUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReviewUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,6 +291,8 @@
 			children = (
 				183B7664217BAEB80056B3B1 /* MainCellM.h */,
 				183B7665217BAEB80056B3B1 /* MainCellM.m */,
+				5CE27AAA22CB4E29008727C7 /* SortModel.swift */,
+				5CE27AA722CB4D34008727C7 /* Review-Bridging-Header.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -487,6 +494,7 @@
 		5C4013A8219A707A003976B9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5CE27A9C22CAFA4B008727C7 /* BubbleSort.html */,
 				18F1C0EC1ED7CC3900DD4E24 /* ReviewList.plist */,
 				18DE76E81EDEAB090095997C /* Review.html */,
 			);
@@ -584,6 +592,7 @@
 					18F1C0AC1ED7B4E300DD4E24 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = CBB7T9SG3B;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					18F1C0C51ED7B4E300DD4E24 = {
@@ -624,6 +633,7 @@
 			files = (
 				18F1C0ED1ED7CC3900DD4E24 /* ReviewList.plist in Resources */,
 				18F1C0C01ED7B4E300DD4E24 /* LaunchScreen.storyboard in Resources */,
+				5CE27A9D22CAFA4B008727C7 /* BubbleSort.html in Resources */,
 				18F1C0BD1ED7B4E300DD4E24 /* Assets.xcassets in Resources */,
 				18F1C0BB1ED7B4E300DD4E24 /* Main.storyboard in Resources */,
 				18DE76E91EDEAB090095997C /* Review.html in Resources */,
@@ -722,6 +732,7 @@
 				183B7659217B63710056B3B1 /* QSPTableViewVM.m in Sources */,
 				18F1C0F31ED919BA00DD4E24 /* NotificationViewController.m in Sources */,
 				183B762D217B5E680056B3B1 /* CommonTableViewHeaderView.m in Sources */,
+				5CE27AAB22CB4E29008727C7 /* SortModel.swift in Sources */,
 				183B765B217B63710056B3B1 /* UITableView+QSPMVVM.m in Sources */,
 				183B7626217B5E680056B3B1 /* CommonTableViewSectionVM.m in Sources */,
 				183B7658217B63710056B3B1 /* QSPTableViewSectionVM.m in Sources */,
@@ -886,9 +897,12 @@
 			baseConfigurationReference = 0CA5C172A5A22BDC9D20E793 /* Pods-Review.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CBB7T9SG3B;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Review/Class/Common/Source/PrefixHeader.pch;
 				INFOPLIST_FILE = Review/Class/Other/System/Info.plist;
@@ -900,8 +914,12 @@
 				);
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qq.781849568.Review;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Review/Class/Model/Review-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -910,9 +928,12 @@
 			baseConfigurationReference = 2F4B22FFF908683B362871CD /* Pods-Review.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CBB7T9SG3B;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Review/Class/Common/Source/PrefixHeader.pch;
 				INFOPLIST_FILE = Review/Class/Other/System/Info.plist;
@@ -924,8 +945,11 @@
 				);
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qq.781849568.Review;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Review/Class/Model/Review-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -933,6 +957,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6735F191D0713D527C602580 /* Pods-ReviewTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ReviewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -946,6 +971,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7D773890688DBC6980659C1B /* Pods-ReviewTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ReviewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -959,6 +985,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2681D142D1477B146D27200 /* Pods-ReviewUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = ReviewUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qq.781849568.ReviewUITests;
@@ -971,6 +998,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8FF3820B67C63E33A6EBC26 /* Pods-ReviewUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = ReviewUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qq.781849568.ReviewUITests;

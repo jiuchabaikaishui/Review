@@ -10,6 +10,7 @@
 #import "CoordinateView.h"
 #import "Masonry.h"
 #import "BubbleSortVM.h"
+#import "Review-Swift.h"
 
 @interface BubbleSortViewController ()
 
@@ -87,6 +88,46 @@
     }];
     
     [self labels];
+    
+    int arr[7] = {1, 3, 4, 5, 2, 4, 8};
+    printArray(arr, 7);
+    bubbleSort(arr, 7);
+    printArray(arr, 7);
+    
+    NSMutableArray *ocArr = [NSMutableArray arrayWithObjects:@(3), @(6), @(1), @(3), @(2), @(0), @(8), nil];
+    NSLog(@"%@", ocArr);
+    [self bubbleSortOC:ocArr];
+    NSLog(@"%@", ocArr);
+    
+    SortModel *sort = [[SortModel alloc] init];
+//    [sort show];
+//    [sort bubbleSort:ocArr];
+}
+void printArray(int arr[], int lenth) {
+    for (int i = 0; i < lenth; i++) {
+        printf("%i", arr[i]);
+    }
+    printf("\n");
+}
+void bubbleSort(int arr[], int lenth) {
+    for (int i = 0; i < lenth - 1; i++) {
+        for (int j = 0; j < lenth - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+- (void)bubbleSortOC:(NSMutableArray *)arr {
+    for (int i = 0; i < arr.count - 1; i++) {
+        for (int j = 0; j < arr.count - i - 1; j++) {
+            if ([arr[j] intValue] > [arr[j + 1] intValue]) {
+                [arr exchangeObjectAtIndex:j withObjectAtIndex:j + 1];
+            }
+        }
+    }
 }
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
