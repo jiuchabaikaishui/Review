@@ -52,8 +52,11 @@
 		5C6D9DB222C47B0100880CCC /* CoordinateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D9DB122C47B0100880CCC /* CoordinateView.m */; };
 		5C6D9DB522C60A7200880CCC /* BubbleSortVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D9DB422C60A7200880CCC /* BubbleSortVM.m */; };
 		5CE27A9922C9F68A008727C7 /* CommonTableViewVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27A9822C9F68A008727C7 /* CommonTableViewVM.m */; };
-		5CE27A9D22CAFA4B008727C7 /* BubbleSort.html in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27A9C22CAFA4B008727C7 /* BubbleSort.html */; };
 		5CE27AAB22CB4E29008727C7 /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27AAA22CB4E29008727C7 /* SortModel.swift */; };
+		5CE27ADA22CCAE17008727C7 /* SelectionSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27AD922CCAE17008727C7 /* SelectionSortViewController.m */; };
+		5CE27ADD22CCB014008727C7 /* SelectionSortVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27ADC22CCB014008727C7 /* SelectionSortVM.m */; };
+		5CE27ADF22CDE28F008727C7 /* BubbleSort.html in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27ADE22CDE28F008727C7 /* BubbleSort.html */; };
+		5CE27AE122CDE2E6008727C7 /* SelectionSort.html in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27AE022CDE2E6008727C7 /* SelectionSort.html */; };
 		73BFCF0C4A40457ACF1D1F65 /* libPods-Review.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E735552343F3324CCE353F2C /* libPods-Review.a */; };
 		96BFB7A2860CD4F8821EEF40 /* libPods-ReviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 420ADEE6BF5D7D88C25C9007 /* libPods-ReviewTests.a */; };
 /* End PBXBuildFile section */
@@ -167,9 +170,14 @@
 		5C6D9DB422C60A7200880CCC /* BubbleSortVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleSortVM.m; sourceTree = "<group>"; };
 		5CE27A9722C9F68A008727C7 /* CommonTableViewVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTableViewVM.h; sourceTree = "<group>"; };
 		5CE27A9822C9F68A008727C7 /* CommonTableViewVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewVM.m; sourceTree = "<group>"; };
-		5CE27A9C22CAFA4B008727C7 /* BubbleSort.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BubbleSort.html; sourceTree = "<group>"; };
 		5CE27AA722CB4D34008727C7 /* Review-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Review-Bridging-Header.h"; sourceTree = "<group>"; };
 		5CE27AAA22CB4E29008727C7 /* SortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
+		5CE27AD822CCAE17008727C7 /* SelectionSortViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectionSortViewController.h; sourceTree = "<group>"; };
+		5CE27AD922CCAE17008727C7 /* SelectionSortViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectionSortViewController.m; sourceTree = "<group>"; };
+		5CE27ADB22CCB014008727C7 /* SelectionSortVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectionSortVM.h; sourceTree = "<group>"; };
+		5CE27ADC22CCB014008727C7 /* SelectionSortVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectionSortVM.m; sourceTree = "<group>"; };
+		5CE27ADE22CDE28F008727C7 /* BubbleSort.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BubbleSort.html; sourceTree = "<group>"; };
+		5CE27AE022CDE2E6008727C7 /* SelectionSort.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SelectionSort.html; sourceTree = "<group>"; };
 		6735F191D0713D527C602580 /* Pods-ReviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D773890688DBC6980659C1B /* Pods-ReviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.release.xcconfig"; sourceTree = "<group>"; };
 		C96C3BDA85D1C6A780AFF396 /* libPods-ReviewUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReviewUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +254,8 @@
 				5C4013C0219ACE54003976B9 /* JavaScriptCoreVM.m */,
 				5C6D9DB322C60A7100880CCC /* BubbleSortVM.h */,
 				5C6D9DB422C60A7200880CCC /* BubbleSortVM.m */,
+				5CE27ADB22CCB014008727C7 /* SelectionSortVM.h */,
+				5CE27ADC22CCB014008727C7 /* SelectionSortVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -282,6 +292,8 @@
 				18DE76EB1EDEAB420095997C /* JavaScriptCoreViewController.m */,
 				5C6D9DAD22C4761700880CCC /* BubbleSortViewController.h */,
 				5C6D9DAE22C4761700880CCC /* BubbleSortViewController.m */,
+				5CE27AD822CCAE17008727C7 /* SelectionSortViewController.h */,
+				5CE27AD922CCAE17008727C7 /* SelectionSortViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -494,7 +506,8 @@
 		5C4013A8219A707A003976B9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				5CE27A9C22CAFA4B008727C7 /* BubbleSort.html */,
+				5CE27AE022CDE2E6008727C7 /* SelectionSort.html */,
+				5CE27ADE22CDE28F008727C7 /* BubbleSort.html */,
 				18F1C0EC1ED7CC3900DD4E24 /* ReviewList.plist */,
 				18DE76E81EDEAB090095997C /* Review.html */,
 			);
@@ -633,10 +646,11 @@
 			files = (
 				18F1C0ED1ED7CC3900DD4E24 /* ReviewList.plist in Resources */,
 				18F1C0C01ED7B4E300DD4E24 /* LaunchScreen.storyboard in Resources */,
-				5CE27A9D22CAFA4B008727C7 /* BubbleSort.html in Resources */,
+				5CE27ADF22CDE28F008727C7 /* BubbleSort.html in Resources */,
 				18F1C0BD1ED7B4E300DD4E24 /* Assets.xcassets in Resources */,
 				18F1C0BB1ED7B4E300DD4E24 /* Main.storyboard in Resources */,
 				18DE76E91EDEAB090095997C /* Review.html in Resources */,
+				5CE27AE122CDE2E6008727C7 /* SelectionSort.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +753,7 @@
 				5C4013B8219AB246003976B9 /* ConFunc.m in Sources */,
 				183B762B217B5E680056B3B1 /* CommonM.m in Sources */,
 				183B765C217B63710056B3B1 /* QSPTableViewSectionM.m in Sources */,
+				5CE27ADD22CCB014008727C7 /* SelectionSortVM.m in Sources */,
 				5CE27A9922C9F68A008727C7 /* CommonTableViewVM.m in Sources */,
 				18F1C0B81ED7B4E300DD4E24 /* MainViewController.m in Sources */,
 				5C6D9DB222C47B0100880CCC /* CoordinateView.m in Sources */,
@@ -753,6 +768,7 @@
 				183B7660217B63710056B3B1 /* QSPTableViewHeaderView.m in Sources */,
 				183B7656217B63710056B3B1 /* QSPScrollViewVM.m in Sources */,
 				183B7657217B63710056B3B1 /* QSPViewVM.m in Sources */,
+				5CE27ADA22CCAE17008727C7 /* SelectionSortViewController.m in Sources */,
 				5C4013C1219ACE54003976B9 /* JavaScriptCoreVM.m in Sources */,
 				183B765D217B63710056B3B1 /* QSPView.m in Sources */,
 				18F1C0F01ED7CD4D00DD4E24 /* DetailViewController.m in Sources */,
@@ -831,6 +847,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -850,6 +867,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -875,6 +894,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -887,6 +907,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -900,9 +922,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = CBB7T9SG3B;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Review/Class/Common/Source/PrefixHeader.pch;
 				INFOPLIST_FILE = Review/Class/Other/System/Info.plist;
@@ -931,9 +953,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = CBB7T9SG3B;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Review/Class/Common/Source/PrefixHeader.pch;
 				INFOPLIST_FILE = Review/Class/Other/System/Info.plist;

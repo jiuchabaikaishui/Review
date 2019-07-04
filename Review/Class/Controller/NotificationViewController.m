@@ -24,6 +24,7 @@
 
 @implementation NotificationViewController
 
+
 #pragma mark - 属性方法
 - (NotificationVM *)vm {
     if (_vm == nil) {
@@ -32,6 +33,7 @@
     
     return _vm;
 }
+
 
 #pragma mark - 控制器周期
 - (void)dealloc
@@ -44,6 +46,7 @@
     [self settingUI];
     [self bindVM];
 }
+
 
 #pragma mark - 自定义方法
 - (void)settingUI

@@ -20,6 +20,8 @@
 
 @implementation DetailViewController
 
+
+#pragma mark - 属性方法
 - (UIWebView *)webView {
     if (_webView == nil) {
         UIWebView *webView = [[UIWebView alloc] init];
@@ -40,6 +42,8 @@
     return _webView;
 }
 
+
+#pragma mark - 控制器周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     /*
@@ -77,11 +81,13 @@
     [self settingUI];
     [self bindVM];
 }
+
+
+#pragma mark - 自定义方法
 - (void)settingUI
 {
     
 }
-
 - (void)bindVM {
     self.title = self.vm.title;
     self.button.rac_command = self.vm.command;

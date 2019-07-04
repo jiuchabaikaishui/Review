@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BubbleSortViewController : SampleBaseViewController
 
+@property (nonatomic, strong) NSMutableArray<NSString *> *arr;
+
 @end
 
 NS_ASSUME_NONNULL_END

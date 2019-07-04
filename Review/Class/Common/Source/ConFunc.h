@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface ConFunc : NSObject
 
 /**
@@ -17,6 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (BOOL)isBlank:(NSString *)str;
 
+/**
+ 打印C语言数组
+
+ @param arr 数组
+ @param lenth 数组长度
+ */
+void printCArray(int arr[], int lenth);
+
 @end
+
+NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END

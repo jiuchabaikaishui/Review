@@ -195,10 +195,10 @@
             </objects>
             <point key="canvasLocation" x="2468" y="366.56671664167919"/>
         </scene>
-        <!--Bubble Sort View Controller-->
+        <!--Selection Sort View Controller-->
         <scene sceneID="3UO-Nb-PJP">
             <objects>
-                <viewController storyboardIdentifier="BubbleSortViewController" id="OzG-b3-Pr7" customClass="BubbleSortViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectionSortViewController" id="OzG-b3-Pr7" customClass="SelectionSortViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Csa-iF-Wuz"/>
                         <viewControllerLayoutGuide type="bottom" id="EfP-Z3-kaN"/>
@@ -234,14 +234,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="nextB" destination="XZM-fG-6d1" id="ryH-Zx-Ssc"/>
-                        <outlet property="playB" destination="NJ3-ta-gHg" id="cgJ-vD-u5O"/>
-                        <outlet property="resetB" destination="XCh-O5-b6V" id="IIO-Hk-WGV"/>
+                        <outlet property="nextB" destination="XZM-fG-6d1" id="30c-uw-hlt"/>
+                        <outlet property="playB" destination="NJ3-ta-gHg" id="BCx-bA-H7J"/>
+                        <outlet property="resetB" destination="XCh-O5-b6V" id="5fV-Bf-ek8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTY-ty-V3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2468" y="1099.7001499250375"/>
+            <point key="canvasLocation" x="2468" y="1802"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vds-ot-hdS">
@@ -260,6 +260,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdI-7N-VOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="256" y="-355"/>
+        </scene>
+        <!--Bubble Sort View Controller-->
+        <scene sceneID="Cat-hF-Dh5">
+            <objects>
+                <viewController storyboardIdentifier="BubbleSortViewController" id="uM1-te-VL7" customClass="BubbleSortViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mNQ-q5-oAn"/>
+                        <viewControllerLayoutGuide type="bottom" id="8xh-dc-jZm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a5X-nY-8le">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46T-Yo-f5T">
+                                <rect key="frame" x="16" y="617" width="109" height="30"/>
+                                <state key="normal" title="重置"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lc-KD-tjv">
+                                <rect key="frame" x="250" y="617" width="109" height="30"/>
+                                <state key="normal" title="播放"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g48-hs-ZaX">
+                                <rect key="frame" x="133" y="617" width="109" height="30"/>
+                                <state key="normal" title="下一步"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8xh-dc-jZm" firstAttribute="top" secondItem="4lc-KD-tjv" secondAttribute="bottom" constant="20" id="3qt-a2-1oe"/>
+                            <constraint firstItem="4lc-KD-tjv" firstAttribute="trailing" secondItem="a5X-nY-8le" secondAttribute="trailingMargin" id="Mgq-bs-Lqx"/>
+                            <constraint firstItem="8xh-dc-jZm" firstAttribute="top" secondItem="g48-hs-ZaX" secondAttribute="bottom" constant="20" id="VoV-Rz-n82"/>
+                            <constraint firstItem="g48-hs-ZaX" firstAttribute="leading" secondItem="46T-Yo-f5T" secondAttribute="trailing" constant="8" id="WJX-Fh-AX8"/>
+                            <constraint firstItem="4lc-KD-tjv" firstAttribute="width" secondItem="46T-Yo-f5T" secondAttribute="width" id="Xgw-s5-scx"/>
+                            <constraint firstItem="46T-Yo-f5T" firstAttribute="leading" secondItem="a5X-nY-8le" secondAttribute="leadingMargin" id="YjO-V3-xwH"/>
+                            <constraint firstItem="8xh-dc-jZm" firstAttribute="top" secondItem="46T-Yo-f5T" secondAttribute="bottom" constant="20" id="aI0-eD-6R3"/>
+                            <constraint firstItem="g48-hs-ZaX" firstAttribute="width" secondItem="46T-Yo-f5T" secondAttribute="width" id="dny-tC-wDr"/>
+                            <constraint firstItem="4lc-KD-tjv" firstAttribute="leading" secondItem="g48-hs-ZaX" secondAttribute="trailing" constant="8" id="n87-Be-ctc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nextB" destination="g48-hs-ZaX" id="CTa-R7-QHj"/>
+                        <outlet property="playB" destination="4lc-KD-tjv" id="22z-QZ-qFL"/>
+                        <outlet property="resetB" destination="46T-Yo-f5T" id="qxK-66-Nj5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMB-Be-8nB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="1099.7001499250375"/>
         </scene>
     </scenes>
 </document>

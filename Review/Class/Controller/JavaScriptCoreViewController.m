@@ -23,6 +23,7 @@
 
 @implementation JavaScriptCoreViewController
 
+
 #pragma mark - 属性方法
 - (JavaScriptCoreVM *)vm {
     if (_vm == nil) {
@@ -31,6 +32,7 @@
     
     return _vm;
 }
+
 
 #pragma mark - 控制器周期
 - (void)viewDidLoad {
@@ -43,6 +45,7 @@
     self.context[@"OC"] = nil;
     self.context = nil;
 }
+
 
 #pragma mark - 自定义方法
 - (void)settingUI
@@ -108,6 +111,7 @@
         });
     }];
 }
+
 
 #pragma mark - <UIWebViewDelegate>代理方法
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType

@@ -30,7 +30,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.backgroundColor = [UIColor cyanColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
     
     return self;

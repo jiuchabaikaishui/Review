@@ -23,4 +23,15 @@
     return NO;
 }
 
+void printCArray(int arr[], int lenth) {
+    printf("{");
+    for (int i = 0; i < lenth; i++) {
+        printf("%i", arr[i]);
+        if (i != lenth - 1) {
+            printf(", ");
+        }
+    }
+    printf("}\n");
+}
+
 @end
