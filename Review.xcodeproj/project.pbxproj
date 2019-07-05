@@ -57,6 +57,8 @@
 		5CE27ADD22CCB014008727C7 /* SelectionSortVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27ADC22CCB014008727C7 /* SelectionSortVM.m */; };
 		5CE27ADF22CDE28F008727C7 /* BubbleSort.html in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27ADE22CDE28F008727C7 /* BubbleSort.html */; };
 		5CE27AE122CDE2E6008727C7 /* SelectionSort.html in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27AE022CDE2E6008727C7 /* SelectionSort.html */; };
+		5CE27AE422CEF549008727C7 /* QuickSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27AE322CEF549008727C7 /* QuickSortViewController.m */; };
+		5CE27AE722CEFECD008727C7 /* QuickSortVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27AE622CEFECD008727C7 /* QuickSortVM.m */; };
 		73BFCF0C4A40457ACF1D1F65 /* libPods-Review.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E735552343F3324CCE353F2C /* libPods-Review.a */; };
 		96BFB7A2860CD4F8821EEF40 /* libPods-ReviewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 420ADEE6BF5D7D88C25C9007 /* libPods-ReviewTests.a */; };
 /* End PBXBuildFile section */
@@ -178,6 +180,10 @@
 		5CE27ADC22CCB014008727C7 /* SelectionSortVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectionSortVM.m; sourceTree = "<group>"; };
 		5CE27ADE22CDE28F008727C7 /* BubbleSort.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BubbleSort.html; sourceTree = "<group>"; };
 		5CE27AE022CDE2E6008727C7 /* SelectionSort.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SelectionSort.html; sourceTree = "<group>"; };
+		5CE27AE222CEF549008727C7 /* QuickSortViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSortViewController.h; sourceTree = "<group>"; };
+		5CE27AE322CEF549008727C7 /* QuickSortViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickSortViewController.m; sourceTree = "<group>"; };
+		5CE27AE522CEFECD008727C7 /* QuickSortVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSortVM.h; sourceTree = "<group>"; };
+		5CE27AE622CEFECD008727C7 /* QuickSortVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickSortVM.m; sourceTree = "<group>"; };
 		6735F191D0713D527C602580 /* Pods-ReviewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D773890688DBC6980659C1B /* Pods-ReviewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReviewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReviewTests/Pods-ReviewTests.release.xcconfig"; sourceTree = "<group>"; };
 		C96C3BDA85D1C6A780AFF396 /* libPods-ReviewUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReviewUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +262,8 @@
 				5C6D9DB422C60A7200880CCC /* BubbleSortVM.m */,
 				5CE27ADB22CCB014008727C7 /* SelectionSortVM.h */,
 				5CE27ADC22CCB014008727C7 /* SelectionSortVM.m */,
+				5CE27AE522CEFECD008727C7 /* QuickSortVM.h */,
+				5CE27AE622CEFECD008727C7 /* QuickSortVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -294,6 +302,8 @@
 				5C6D9DAE22C4761700880CCC /* BubbleSortViewController.m */,
 				5CE27AD822CCAE17008727C7 /* SelectionSortViewController.h */,
 				5CE27AD922CCAE17008727C7 /* SelectionSortViewController.m */,
+				5CE27AE222CEF549008727C7 /* QuickSortViewController.h */,
+				5CE27AE322CEF549008727C7 /* QuickSortViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -751,6 +761,7 @@
 				183B7626217B5E680056B3B1 /* CommonTableViewSectionVM.m in Sources */,
 				183B7658217B63710056B3B1 /* QSPTableViewSectionVM.m in Sources */,
 				5C4013B8219AB246003976B9 /* ConFunc.m in Sources */,
+				5CE27AE422CEF549008727C7 /* QuickSortViewController.m in Sources */,
 				183B762B217B5E680056B3B1 /* CommonM.m in Sources */,
 				183B765C217B63710056B3B1 /* QSPTableViewSectionM.m in Sources */,
 				5CE27ADD22CCB014008727C7 /* SelectionSortVM.m in Sources */,
@@ -765,6 +776,7 @@
 				18F1C0B21ED7B4E300DD4E24 /* main.m in Sources */,
 				5C6D9DAF22C4761700880CCC /* BubbleSortViewController.m in Sources */,
 				5C4013B2219A85E2003976B9 /* BaseVM.m in Sources */,
+				5CE27AE722CEFECD008727C7 /* QuickSortVM.m in Sources */,
 				183B7660217B63710056B3B1 /* QSPTableViewHeaderView.m in Sources */,
 				183B7656217B63710056B3B1 /* QSPScrollViewVM.m in Sources */,
 				183B7657217B63710056B3B1 /* QSPViewVM.m in Sources */,
