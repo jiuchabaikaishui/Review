@@ -10,6 +10,8 @@
 
 @interface BubbleSortVM : BaseVM
 
+@property (nonatomic, assign, readonly) int numberCount;
+@property (nonatomic, assign, readonly) int maxNumber;
 @property (nonatomic, assign) int count;
 @property (nonatomic, assign) int index;
 @property (nonatomic, assign) BOOL animating;
@@ -17,6 +19,9 @@
 @property (nonatomic, strong) RACCommand *resetCommand;
 @property (nonatomic, strong) RACCommand *nextCommand;
 @property (nonatomic, strong) RACCommand *playCommand;
+
++ (instancetype)vmWithNumberCount:(int)numberCount maxNumber:(int)maxNumber;
+- (instancetype)initWithNumberCount:(int)numberCount maxNumber:(int)maxNumber;
 
 void bubbleSortC(int array[], int lenth);
 - (void)bubbleSortOC:(NSMutableArray<NSNumber *> *)array;

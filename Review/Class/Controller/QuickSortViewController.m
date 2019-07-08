@@ -9,11 +9,11 @@
 #import "QuickSortViewController.h"
 #import "CoordinateView.h"
 #import "Masonry.h"
-#import "BubbleSortVM.h"
+#import "QuickSortVM.h"
 
 @interface QuickSortViewController ()
 
-@property (strong, nonatomic, readonly) BubbleSortVM *vm;
+@property (strong, nonatomic, readonly) QuickSortVM *vm;
 @property (strong, nonatomic, readonly) NSMutableArray *labels;
 
 @property (weak, nonatomic) CoordinateView *coordinateV;
@@ -30,9 +30,9 @@
 
 
 #pragma mark - 属性方法
-- (BubbleSortVM *)vm {
+- (QuickSortVM *)vm {
     if (_vm == nil) {
-        _vm = [[BubbleSortVM alloc] init];
+        _vm = [QuickSortVM vmWithNumberCount:8 maxNumber:8];
     }
     
     return _vm;
@@ -40,8 +40,8 @@
 - (NSMutableArray *)labels {
     if (_labels == nil) {
         _labels = [NSMutableArray arrayWithCapacity:1];
-        for (int i = 0; i< 10; i++) {
-            int random = arc4random()%10 + 1;
+        for (int i = 0; i < self.vm.numberCount; i++) {
+            int random = arc4random()%self.vm.maxNumber + 1;
             UILabel *label = [[UILabel alloc] init];
             label.backgroundColor = [UIColor blackColor];
             label.textColor = [UIColor whiteColor];
@@ -71,15 +71,15 @@
     [self bindVM];
     
     int cArr[10] = {10, 5, 3, 6, 8, 8, 6, 8, 8, 5};
-    bubbleSortC(cArr, 10);
+    quickSortC(cArr, 0, 9);
     printCArray(cArr, 10);
     
     NSMutableArray *ocArr = [NSMutableArray arrayWithObjects:@10, @5, @3, @6, @8, @8, @6, @8, @8, @5, nil];
-    [self.vm bubbleSortOC:ocArr];
+    [self.vm quickSortOC:ocArr left:0 right:ocArr.count - 1];
     NSLog(@"%@", ocArr);
-    
+
     ocArr = [NSMutableArray arrayWithObjects:@10, @5, @3, @6, @8, @8, @6, @8, @8, @5, nil];
-    [self.vm bubbleSortCSwift:ocArr];
+    [self.vm quickSortSwift:ocArr left:0 right:ocArr.count - 1];
     NSLog(@"%@", ocArr);
 }
 - (void)viewDidLayoutSubviews {
@@ -97,7 +97,7 @@
 
 #pragma mark - 自定义方法
 - (void)settingUI {
-    CoordinateView *view = [[CoordinateView alloc] init];
+    CoordinateView *view = [CoordinateView coordinateWithMaxX:self.vm.maxNumber maxY:self.vm.numberCount];
     [self.view addSubview:view];
     self.coordinateV = view;
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,11 +122,11 @@
     self.resetB.rac_command = self.vm.resetCommand;
     [self.vm.resetCommand.executionSignals subscribeNext:^(id  _Nullable x) {
         @strongify(self)
-        self.vm.count = 0;
-        self.vm.index = 0;
+        self.vm.left = 0;
+        self.vm.right = self.vm.numberCount - 1;
         [self.view setNeedsUpdateConstraints];
         for (UILabel *label in self.labels) {
-            int random = arc4random()%10 + 1;
+            int random = arc4random()%self.vm.maxNumber + 1;
             [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 label.text = [NSString stringWithFormat:@"%i", random];
                 [self.view layoutIfNeeded];
@@ -150,66 +150,81 @@
     }];
 }
 - (void)animationWithAllSteps:(BOOL)all {
-    if (self.vm.count > 8) {
+    if (self.vm.right <= self.vm.left && self.vm.numberCount - 1 < self.vm.right - self.vm.left) {
+        self.vm.animating = NO;
         self.vm.animateingAll = NO;
         return;
     }
-    if (self.vm.animateingAll != all) {
+    
+    if (!self.vm.animateingAll) {
         self.vm.animateingAll = all;
     }
-    UILabel *label1 = [self.labels objectAtIndex:self.vm.index];
-    UILabel *label2 = [self.labels objectAtIndex:self.vm.index + 1];
-    label1.backgroundColor = [UIColor redColor];
-    label2.backgroundColor = [UIColor redColor];
     self.vm.animating = YES;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if ([label1.text intValue] > [label2.text intValue]) {
-            [self.labels exchangeObjectAtIndex:self.vm.index withObjectAtIndex:self.vm.index + 1];
-            self.vm.index++;
-            if (self.vm.index >= self.labels.count - self.vm.count - 1) {
-                self.vm.count++;
-                self.vm.index = 0;
+    UILabel *label1 = self.labels[self.vm.left];
+    UILabel *label2 = self.labels[self.vm.right];
+    if (self.vm.large) {
+        if ([label2.text intValue] >= [label1.text intValue]) {
+            self.vm.right--;
+            if (all && self.vm.left < self.vm.right) {
+                [self animationWithAllSteps:all];
+            } else {
+                self.vm.animating = NO;
+                self.vm.animateingAll = NO;
             }
-            [self.view setNeedsUpdateConstraints];
-            [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        } else {
+            [self.labels exchangeObjectAtIndex:self.vm.left withObjectAtIndex:self.vm.right];
+            [UIView animateWithDuration:0.3 animations:^{
                 [label1 mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.centerY.equalTo(self.coordinateV.mas_top).offset([self.coordinateV yFormValueY:self.vm.index]);
+                    make.top.equalTo(self.coordinateV).offset([self.coordinateV yFormValueY:self.vm.right + 1]);
                 }];
                 [label2 mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.centerY.equalTo(self.coordinateV.mas_top).offset([self.coordinateV yFormValueY:self.vm.index + 1]);
+                    make.top.equalTo(self.coordinateV).offset([self.coordinateV yFormValueY:self.vm.left + 1]);
                 }];
                 [self.view layoutIfNeeded];
             } completion:^(BOOL finished) {
-                label1.backgroundColor = [UIColor blackColor];
-                label2.backgroundColor = [UIColor blackColor];
-                if (all && self.vm.count < 9) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self animationWithAllSteps:all];
-                    });
+                self.vm.index = self.vm.right;
+                self.vm.right--;
+                self.vm.large = !self.vm.large;
+                if (all && self.vm.left < self.vm.right) {
+                    [self animationWithAllSteps:all];
                 } else {
                     self.vm.animating = NO;
                     self.vm.animateingAll = NO;
                 }
             }];
-        } else {
-            self.vm.index++;
-            if (self.vm.index >= self.labels.count - self.vm.count - 1) {
-                self.vm.count++;
-                self.vm.index = 0;
-            }
-            label1.backgroundColor = [UIColor blackColor];
-            label2.backgroundColor = [UIColor blackColor];
-            
-            if (all && self.vm.count < 9) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self animationWithAllSteps:all];
-                });
+        }
+    } else {
+        if ([label1.text intValue] <= [label1.text intValue]) {
+            self.vm.left++;
+            if (all && self.vm.left < self.vm.right) {
+                [self animationWithAllSteps:all];
             } else {
                 self.vm.animating = NO;
                 self.vm.animateingAll = NO;
             }
+        } else {
+            [self.labels exchangeObjectAtIndex:self.vm.left withObjectAtIndex:self.vm.right];
+            [UIView animateWithDuration:0.3 animations:^{
+                [label1 mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(self.coordinateV).offset([self.coordinateV yFormValueY:self.vm.right + 1]);
+                }];
+                [label2 mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.top.equalTo(self.coordinateV).offset([self.coordinateV yFormValueY:self.vm.left + 1]);
+                }];
+                [self.view layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                self.vm.index = self.vm.left;
+                self.vm.large = !self.vm.large;
+                
+                if (all && self.vm.left < self.vm.right) {
+                    [self animationWithAllSteps:all];
+                } else {
+                    self.vm.animating = NO;
+                    self.vm.animateingAll = NO;
+                }
+            }];
         }
-    });
+    }
 }
 
 @end

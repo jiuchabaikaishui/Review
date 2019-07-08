@@ -33,7 +33,7 @@
 #pragma mark - 属性方法
 - (SelectionSortVM *)vm {
     if (_vm == nil) {
-        _vm = [[SelectionSortVM alloc] init];
+        _vm = [SelectionSortVM vmWithNumberCount:8 maxNumber:8];
     }
     
     return _vm;
@@ -41,8 +41,8 @@
 - (NSMutableArray *)labels {
     if (_labels == nil) {
         _labels = [NSMutableArray arrayWithCapacity:1];
-        for (int i = 0; i< 10; i++) {
-            int random = arc4random()%10 + 1;
+        for (int i = 0; i < self.vm.numberCount; i++) {
+            int random = arc4random()%self.vm.maxNumber + 1;
             UILabel *label = [[UILabel alloc] init];
             label.backgroundColor = [UIColor blackColor];
             label.textColor = [UIColor whiteColor];
@@ -98,7 +98,7 @@
 
 #pragma mark - 自定义方法
 - (void)settingUI {
-    CoordinateView *view = [[CoordinateView alloc] init];
+    CoordinateView *view = [CoordinateView coordinateWithMaxX:self.vm.maxNumber maxY:self.vm.numberCount];
     [self.view addSubview:view];
     self.coordinateV = view;
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -130,7 +130,7 @@
         self.vm.minPos = 0;
         [self.view setNeedsUpdateConstraints];
         for (UILabel *label in self.labels) {
-            int random = arc4random()%10 + 1;
+            int random = arc4random()%self.vm.maxNumber + 1;
             [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 label.text = [NSString stringWithFormat:@"%i", random];
                 [self.view layoutIfNeeded];
@@ -162,11 +162,11 @@
     if (!self.vm.animateingAll) {
         self.vm.animateingAll = all;
     }
+    self.vm.animating = YES;
     UILabel *label1 = [self.labels objectAtIndex:self.vm.minPos];
     UILabel *label2 = [self.labels objectAtIndex:self.vm.count + self.vm.index + 1];
     label1.backgroundColor = [UIColor redColor];
     label2.backgroundColor = [UIColor greenColor];
-    self.vm.animating = YES;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if ([label1.text intValue] > [label2.text intValue]) {
             label1.backgroundColor = [UIColor blackColor];

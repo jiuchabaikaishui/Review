@@ -56,4 +56,61 @@ import UIKit
             }
         }
     }
+    
+    @objc func quickSort(array: NSMutableArray, left: Int, right: Int) {
+        if (left >= right || array.count - 1 < right - left) {
+            return
+        }
+        
+        var i = left
+        var j = right
+        let k = array.object(at: i) as! Int
+        while i < j {
+            while i < j && (array[j] as! Int) >= k {
+                j -= 1
+            }
+            if i < j {
+                array[i] = array[j]
+            }
+            
+            while i < j && (array[i] as! Int) <= k {
+                i += 1
+            }
+            if i < j {
+                array[j] = array[i]
+            }
+        }
+        array[i] = k
+        
+        quickSort(array: array, left: left, right: i - 1)
+        quickSort(array: array, left: j + 1, right: right)
+    }
+    func quickSort(array: inout [Int], left: Int, right: Int) {
+        if left <= right || array.count - 1 < right - left {
+            return
+        }
+        
+        var i = left
+        var j = right
+        let k = array[i]
+        while i < j {
+            while i < j && array[j] >= k {
+                j -= 1
+            }
+            if i < j {
+                array[i] = array[j]
+            }
+            
+            while i < j && array[i] <= k {
+                i += 1
+            }
+            if i < j {
+                array[j] = array[i]
+            }
+        }
+        array[i] = k
+        
+        quickSort(array: &array, left: left, right: i - 1)
+        quickSort(array: &array, left: j + 1, right: right)
+    }
 }

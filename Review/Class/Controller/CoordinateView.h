@@ -10,6 +10,12 @@
 
 @interface CoordinateView : UIView
 
+@property (nonatomic, copy) NSString *labelX;
+@property (nonatomic, copy) NSString *labelY;
+
++ (instancetype)coordinateWithMaxX:(int)maxX maxY:(int)maxY;
+- (instancetype)initWithMaxX:(int)maxX maxY:(int)maxY;
+
 - (CGPoint)positionFromeValueX:(int)x valueY:(int)y;
 - (CGFloat)xFormValueX:(int)x;
 - (CGFloat)yFormValueY:(int)y;

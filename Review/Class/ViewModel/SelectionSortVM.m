@@ -11,6 +11,26 @@
 
 @implementation SelectionSortVM
 
++ (instancetype)vmWithNumberCount:(int)numberCount maxNumber:(int)maxNumber {
+    return [[self alloc] initWithNumberCount:numberCount maxNumber:maxNumber];
+}
+- (instancetype)init {
+    if (self = [super init]) {
+        _numberCount = 10;
+        _maxNumber = 10;
+    }
+    
+    return self;
+}
+- (instancetype)initWithNumberCount:(int)numberCount maxNumber:(int)maxNumber {
+    if (self = [super init]) {
+        _numberCount = numberCount;
+        _maxNumber = maxNumber;
+    }
+    
+    return self;
+}
+
 - (RACCommand *)resetCommand {
     if (_resetCommand == nil) {
         RACSignal *countS = RACObserve(self, count);
@@ -30,8 +50,10 @@
         RACSignal *countS = RACObserve(self, count);
         RACSignal *animatingS = RACObserve(self, animating);
         RACSignal *animatingAllS = RACObserve(self, animateingAll);
+        @weakify(self)
         RACSignal *combineS = [RACSignal combineLatest:@[countS, animatingS, animatingAllS] reduce:^id _Nonnull(id first, id second, id third){
-            return @([first intValue] < 8 && (![second boolValue]) && (![third boolValue]));
+            @strongify(self)
+            return @([first intValue] < self.numberCount - 2 && (![second boolValue]) && (![third boolValue]));
         }];
         _nextCommand = [self emptyCommandWithEnabled:combineS];
     }
@@ -42,8 +64,10 @@
     RACSignal *countS = RACObserve(self, count);
     RACSignal *animatingS = RACObserve(self, animating);
     RACSignal *animatingAllS = RACObserve(self, animateingAll);
+    @weakify(self)
     RACSignal *combineS = [RACSignal combineLatest:@[countS, animatingS, animatingAllS] reduce:^id _Nonnull(id first, id second, id third){
-        return @([first intValue] < 8 && (![second boolValue]) && (![third boolValue]));
+        @strongify(self)
+        return @([first intValue] < self.numberCount - 2 && (![second boolValue]) && (![third boolValue]));
     }];
     if (_playCommand == nil) {
         _playCommand = [self emptyCommandWithEnabled:combineS];
