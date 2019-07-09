@@ -13,7 +13,7 @@
 
 @interface DetailViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) UIButton *button;
 @property (weak, nonatomic) UIWebView *webView;
 
 @end
@@ -22,21 +22,20 @@
 
 
 #pragma mark - 属性方法
+- (UIButton *)button {
+    if (_button == nil) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        [self.view addSubview:button];
+        _button = button;
+    }
+    
+    return _button;
+}
 - (UIWebView *)webView {
     if (_webView == nil) {
         UIWebView *webView = [[UIWebView alloc] init];
         [self.view addSubview:webView];
         _webView = webView;
-        [webView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.mas_topLayoutGuideBottom);
-            make.bottom.equalTo(self.button.mas_top).offset(-8.0);
-            if (@available(iOS 11.0, *)) {
-                make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
-                make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
-            } else {
-                make.left.right.equalTo(self.view);
-            }
-        }];
     }
     
     return _webView;
@@ -86,11 +85,41 @@
 #pragma mark - 自定义方法
 - (void)settingUI
 {
-    
+    if (self.vm.sampleClass && (![self.vm.sampleClass isEqualToString:@""])) {
+        [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
+            if (@available(iOS 11.0, *)) {
+                make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+                make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+            } else {
+                make.left.right.equalTo(self.view);
+            }
+        }];
+        [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.mas_topLayoutGuideBottom);
+            make.bottom.equalTo(self.button.mas_top).offset(-8.0);
+            if (@available(iOS 11.0, *)) {
+                make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+                make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+            } else {
+                make.left.right.equalTo(self.view);
+            }
+        }];
+    } else {
+        [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.mas_topLayoutGuideBottom);
+            make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
+            if (@available(iOS 11.0, *)) {
+                make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+                make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+            } else {
+                make.left.right.equalTo(self.view);
+            }
+        }];
+    }
 }
 - (void)bindVM {
     self.title = self.vm.title;
-    self.button.rac_command = self.vm.command;
     NSString *path = [[NSBundle mainBundle] pathForResource:self.vm.explain ofType:nil];
     if (path) {
         NSURL *url = [NSURL URLWithString:path];
@@ -99,24 +128,16 @@
     } else {
         [self.webView loadData:[self.vm.explain dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
     }
-    @weakify(self);
-    [self.vm.command.executionSignals subscribeNext:^(id  _Nullable x) {
-        @strongify(self);
-        if (self.vm.sampleClass && (![self.vm.sampleClass isEqualToString:@""])) {
+    if (self.vm.sampleClass && (![self.vm.sampleClass isEqualToString:@""])) {
+        [self.button setTitle:self.vm.buttonTitle forState:UIControlStateNormal];
+        self.button.rac_command = self.vm.command;
+        @weakify(self);
+        [self.vm.command.executionSignals subscribeNext:^(id  _Nullable x) {
+            @strongify(self);
             UIViewController *nextCtr = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:self.vm.sampleClass];
             [self.navigationController pushViewController:nextCtr animated:YES];
-        }
-        else
-        {
-            UIAlertController *nextCtr = [UIAlertController alertControllerWithTitle:@"提示" message:@"该技能没有演示示例！" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                @strongify(self);
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }];
-            [nextCtr addAction:okAction];
-            [self presentViewController:nextCtr animated:YES completion:nil];
-        }
-    }];
+        }];
+    }
 }
 
 //- (BOOL)class:(Class)class haveTheProperty:(NSString *)propertyName

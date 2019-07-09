@@ -91,8 +91,14 @@ JSExport
 				<string>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</string>
 				<key>explain</key>
 				<string>QuickSort.html</string>
-				<key>sampleClass</key>
-				<string>QuickSortViewController</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>二分查找</string>
+				<key>detail</key>
+				<string>二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</string>
+				<key>explain</key>
+				<string>BinarySearch.html</string>
 			</dict>
 		</array>
 	</dict>

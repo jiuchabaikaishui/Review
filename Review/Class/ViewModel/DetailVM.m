@@ -10,6 +10,13 @@
 
 @implementation DetailVM
 
+- (NSString *)buttonTitle {
+    if (_buttonTitle == nil) {
+        _buttonTitle = @"示例演示";
+    }
+    
+    return _buttonTitle;
+}
 - (RACCommand *)command {
     if (_command == nil) {
         _command = [self emptyCommand];

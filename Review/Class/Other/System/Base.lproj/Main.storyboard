@@ -55,22 +55,8 @@
                     <view key="view" contentMode="scaleToFill" id="YeQ-VJ-opB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWd-7P-0ss">
-                                <rect key="frame" x="16" y="617" width="343" height="30"/>
-                                <state key="normal" title="示例演示"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="xWd-7P-0ss" firstAttribute="leading" secondItem="YeQ-VJ-opB" secondAttribute="leadingMargin" id="6vj-kU-WHa"/>
-                            <constraint firstItem="xWd-7P-0ss" firstAttribute="trailing" secondItem="YeQ-VJ-opB" secondAttribute="trailingMargin" id="GgA-c0-2Xu"/>
-                            <constraint firstItem="GqG-3G-bH1" firstAttribute="top" secondItem="xWd-7P-0ss" secondAttribute="bottom" constant="20" id="da4-ud-tFf"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="button" destination="xWd-7P-0ss" id="dcJ-fi-1bU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="go3-EF-gaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -308,54 +294,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMB-Be-8nB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2468" y="1099.7001499250375"/>
-        </scene>
-        <!--Quick Sort View Controller-->
-        <scene sceneID="4uq-aE-sEr">
-            <objects>
-                <viewController storyboardIdentifier="QuickSortViewController" id="TwD-9M-u8k" customClass="QuickSortViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7HR-kZ-5p6"/>
-                        <viewControllerLayoutGuide type="bottom" id="BRK-3g-nkt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1pe-l6-EOB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoH-xh-fLZ">
-                                <rect key="frame" x="16" y="617" width="109" height="30"/>
-                                <state key="normal" title="重置"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nP-ww-lk0">
-                                <rect key="frame" x="250" y="617" width="109" height="30"/>
-                                <state key="normal" title="播放"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggH-wZ-ezW">
-                                <rect key="frame" x="133" y="617" width="109" height="30"/>
-                                <state key="normal" title="下一步"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="7nP-ww-lk0" firstAttribute="leading" secondItem="ggH-wZ-ezW" secondAttribute="trailing" constant="8" id="EN3-NH-gvd"/>
-                            <constraint firstItem="BRK-3g-nkt" firstAttribute="top" secondItem="ggH-wZ-ezW" secondAttribute="bottom" constant="20" id="RGr-Fs-OxF"/>
-                            <constraint firstItem="BRK-3g-nkt" firstAttribute="top" secondItem="MoH-xh-fLZ" secondAttribute="bottom" constant="20" id="RMC-g2-hFq"/>
-                            <constraint firstItem="ggH-wZ-ezW" firstAttribute="leading" secondItem="MoH-xh-fLZ" secondAttribute="trailing" constant="8" id="Xr8-pS-1Kg"/>
-                            <constraint firstItem="7nP-ww-lk0" firstAttribute="trailing" secondItem="1pe-l6-EOB" secondAttribute="trailingMargin" id="eXR-Gn-FiB"/>
-                            <constraint firstItem="BRK-3g-nkt" firstAttribute="top" secondItem="7nP-ww-lk0" secondAttribute="bottom" constant="20" id="iTQ-g1-Gmz"/>
-                            <constraint firstItem="ggH-wZ-ezW" firstAttribute="width" secondItem="MoH-xh-fLZ" secondAttribute="width" id="k7T-fk-JAI"/>
-                            <constraint firstItem="7nP-ww-lk0" firstAttribute="width" secondItem="MoH-xh-fLZ" secondAttribute="width" id="po5-hn-ZfB"/>
-                            <constraint firstItem="MoH-xh-fLZ" firstAttribute="leading" secondItem="1pe-l6-EOB" secondAttribute="leadingMargin" id="zsF-uI-4gN"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="nextB" destination="ggH-wZ-ezW" id="IUi-cN-nF9"/>
-                        <outlet property="playB" destination="7nP-ww-lk0" id="jrq-Mc-Ifk"/>
-                        <outlet property="resetB" destination="MoH-xh-fLZ" id="zWx-Gw-Keb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tuC-Xk-FdI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2468" y="2541"/>
         </scene>
     </scenes>
 </document>

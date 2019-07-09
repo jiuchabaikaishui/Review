@@ -97,7 +97,7 @@ void bubbleSortC(int array[], int lenth) {
     }
 }
 - (void)bubbleSortCSwift:(NSMutableArray<NSNumber *> *)array {
-    SortModel *sort = [[SortModel alloc] init];
+    SwiftModel *sort = [[SwiftModel alloc] init];
     [sort bubbleSortWithArray:array];
 }
 

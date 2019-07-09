@@ -109,7 +109,7 @@ void selectionSortC(int array[], int len) {
 }
 
 - (void)selectionSortSwift:(NSMutableArray<NSNumber *> *)array {
-    SortModel *sort = [[SortModel alloc] init];
+    SwiftModel *sort = [[SwiftModel alloc] init];
     [sort selectionSortWithArray:array];
 }
 

@@ -11,6 +11,7 @@
 @interface DetailVM : BaseVM
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *buttonTitle;
 @property (copy, nonatomic) NSString *explain;
 @property (copy, nonatomic) NSString *sampleClass;
 @property (nonatomic, strong) RACCommand *command;

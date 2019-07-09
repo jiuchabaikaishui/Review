@@ -1,14 +1,14 @@
 //
-//  SortModel.swift
+//  SwiftModel.swift
 //  Review
 //
-//  Created by 綦帅鹏 on 2019/7/2.
+//  Created by 綦帅鹏 on 2019/7/9.
 //  Copyright © 2019 QSP. All rights reserved.
 //
 
 import UIKit
 
-@objc class SortModel: NSObject {
+@objc class SwiftModel: NSObject {
     @objc func bubbleSort(array: NSMutableArray) {
         for i in 0..<array.count - 1 {
             for j in 0..<array.count - i - 1 {
