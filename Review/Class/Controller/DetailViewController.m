@@ -122,7 +122,7 @@
     self.title = self.vm.title;
     NSString *path = [[NSBundle mainBundle] pathForResource:self.vm.explain ofType:nil];
     if (path) {
-        NSURL *url = [NSURL URLWithString:path];
+        NSURL *url = [NSURL URLWithString:[path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]]];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self.webView loadRequest:request];
     } else {

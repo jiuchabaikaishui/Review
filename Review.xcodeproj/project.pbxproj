@@ -27,6 +27,18 @@
 		183B7666217BAEB80056B3B1 /* MainCellM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7665217BAEB80056B3B1 /* MainCellM.m */; };
 		183B7669217BB6980056B3B1 /* DetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B7668217BB6980056B3B1 /* DetailVM.m */; };
 		183D688721757F83006F0CC4 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 183D688621757F83006F0CC4 /* Ticket.m */; };
+		1875232123026469006FD263 /* MD5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875232023026469006FD263 /* MD5ViewController.m */; };
+		1875232423026772006FD263 /* MD5VM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875232323026772006FD263 /* MD5VM.m */; };
+		1875232823028703006FD263 /* MD5.html in Resources */ = {isa = PBXBuildFile; fileRef = 1875232723028703006FD263 /* MD5.html */; };
+		1875232B230288A6006FD263 /* AESViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875232A230288A6006FD263 /* AESViewController.m */; };
+		1875232E230288BC006FD263 /* AESVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875232D230288BC006FD263 /* AESVM.m */; };
+		1875235B2303A42A006FD263 /* RSAVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875235A2303A42A006FD263 /* RSAVM.m */; };
+		187523602303A604006FD263 /* RSAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1875235F2303A604006FD263 /* RSAViewController.m */; };
+		1883626B2303ABFA00D97D41 /* private_key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 1875235D2303A5DD006FD263 /* private_key.p12 */; };
+		1883626C2303ABFA00D97D41 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = 1875235C2303A5DD006FD263 /* public_key.der */; };
+		188362702303B55E00D97D41 /* 对称加密AES.html in Resources */ = {isa = PBXBuildFile; fileRef = 1883626F2303B55E00D97D41 /* 对称加密AES.html */; };
+		188362722303B72700D97D41 /* 非对称加密RSA.html in Resources */ = {isa = PBXBuildFile; fileRef = 188362712303B72700D97D41 /* 非对称加密RSA.html */; };
+		188362782303E75500D97D41 /* DigestCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 188362772303E75500D97D41 /* DigestCryptor.m */; };
 		18DE76E91EDEAB090095997C /* Review.html in Resources */ = {isa = PBXBuildFile; fileRef = 18DE76E81EDEAB090095997C /* Review.html */; };
 		18DE76EC1EDEAB420095997C /* JavaScriptCoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE76EB1EDEAB420095997C /* JavaScriptCoreViewController.m */; };
 		18DE76EF1EDEB1630095997C /* SampleBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE76EE1EDEB1630095997C /* SampleBaseViewController.m */; };
@@ -124,6 +136,25 @@
 		183B7668217BB6980056B3B1 /* DetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailVM.m; sourceTree = "<group>"; };
 		183D688521757F83006F0CC4 /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
 		183D688621757F83006F0CC4 /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		1875231F23026469006FD263 /* MD5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5ViewController.h; sourceTree = "<group>"; };
+		1875232023026469006FD263 /* MD5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD5ViewController.m; sourceTree = "<group>"; };
+		1875232223026772006FD263 /* MD5VM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5VM.h; sourceTree = "<group>"; };
+		1875232323026772006FD263 /* MD5VM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD5VM.m; sourceTree = "<group>"; };
+		1875232723028703006FD263 /* MD5.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MD5.html; sourceTree = "<group>"; };
+		18752329230288A6006FD263 /* AESViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AESViewController.h; sourceTree = "<group>"; };
+		1875232A230288A6006FD263 /* AESViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AESViewController.m; sourceTree = "<group>"; };
+		1875232C230288BC006FD263 /* AESVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AESVM.h; sourceTree = "<group>"; };
+		1875232D230288BC006FD263 /* AESVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AESVM.m; sourceTree = "<group>"; };
+		187523592303A42A006FD263 /* RSAVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAVM.h; sourceTree = "<group>"; };
+		1875235A2303A42A006FD263 /* RSAVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSAVM.m; sourceTree = "<group>"; };
+		1875235C2303A5DD006FD263 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
+		1875235D2303A5DD006FD263 /* private_key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = private_key.p12; sourceTree = "<group>"; };
+		1875235E2303A604006FD263 /* RSAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSAViewController.h; sourceTree = "<group>"; };
+		1875235F2303A604006FD263 /* RSAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSAViewController.m; sourceTree = "<group>"; };
+		1883626F2303B55E00D97D41 /* 对称加密AES.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "对称加密AES.html"; sourceTree = "<group>"; };
+		188362712303B72700D97D41 /* 非对称加密RSA.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "非对称加密RSA.html"; sourceTree = "<group>"; };
+		188362762303E75500D97D41 /* DigestCryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DigestCryptor.h; sourceTree = "<group>"; };
+		188362772303E75500D97D41 /* DigestCryptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DigestCryptor.m; sourceTree = "<group>"; };
 		18DE76E81EDEAB090095997C /* Review.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Review.html; sourceTree = "<group>"; };
 		18DE76EA1EDEAB420095997C /* JavaScriptCoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaScriptCoreViewController.h; sourceTree = "<group>"; };
 		18DE76EB1EDEAB420095997C /* JavaScriptCoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaScriptCoreViewController.m; sourceTree = "<group>"; };
@@ -270,6 +301,12 @@
 				5CE27AE622CEFECD008727C7 /* QuickSortVM.m */,
 				5CDAB16822D4766D00CD63E1 /* BinarySearchVM.h */,
 				5CDAB16922D4766D00CD63E1 /* BinarySearchVM.m */,
+				1875232223026772006FD263 /* MD5VM.h */,
+				1875232323026772006FD263 /* MD5VM.m */,
+				1875232C230288BC006FD263 /* AESVM.h */,
+				1875232D230288BC006FD263 /* AESVM.m */,
+				187523592303A42A006FD263 /* RSAVM.h */,
+				1875235A2303A42A006FD263 /* RSAVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -308,6 +345,12 @@
 				5C6D9DAE22C4761700880CCC /* BubbleSortViewController.m */,
 				5CE27AD822CCAE17008727C7 /* SelectionSortViewController.h */,
 				5CE27AD922CCAE17008727C7 /* SelectionSortViewController.m */,
+				1875231F23026469006FD263 /* MD5ViewController.h */,
+				1875232023026469006FD263 /* MD5ViewController.m */,
+				18752329230288A6006FD263 /* AESViewController.h */,
+				1875232A230288A6006FD263 /* AESViewController.m */,
+				1875235E2303A604006FD263 /* RSAViewController.h */,
+				1875235F2303A604006FD263 /* RSAViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -520,6 +563,11 @@
 		5C4013A8219A707A003976B9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1875235D2303A5DD006FD263 /* private_key.p12 */,
+				1875235C2303A5DD006FD263 /* public_key.der */,
+				188362712303B72700D97D41 /* 非对称加密RSA.html */,
+				1883626F2303B55E00D97D41 /* 对称加密AES.html */,
+				1875232723028703006FD263 /* MD5.html */,
 				5CDAB16B22D47E3900CD63E1 /* BinarySearch.html */,
 				5CDAB16422D4699000CD63E1 /* QuickSort.html */,
 				5CE27AE022CDE2E6008727C7 /* SelectionSort.html */,
@@ -537,6 +585,8 @@
 				5C4013AA219A7A52003976B9 /* CommonDefine.h */,
 				5C4013B6219AB246003976B9 /* ConFunc.h */,
 				5C4013B7219AB246003976B9 /* ConFunc.m */,
+				188362762303E75500D97D41 /* DigestCryptor.h */,
+				188362772303E75500D97D41 /* DigestCryptor.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -660,9 +710,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1883626B2303ABFA00D97D41 /* private_key.p12 in Resources */,
+				188362702303B55E00D97D41 /* 对称加密AES.html in Resources */,
+				1883626C2303ABFA00D97D41 /* public_key.der in Resources */,
 				5CDAB16C22D47E3900CD63E1 /* BinarySearch.html in Resources */,
 				18F1C0ED1ED7CC3900DD4E24 /* ReviewList.plist in Resources */,
+				188362722303B72700D97D41 /* 非对称加密RSA.html in Resources */,
 				18F1C0C01ED7B4E300DD4E24 /* LaunchScreen.storyboard in Resources */,
+				1875232823028703006FD263 /* MD5.html in Resources */,
 				5CE27ADF22CDE28F008727C7 /* BubbleSort.html in Resources */,
 				18F1C0BD1ED7B4E300DD4E24 /* Assets.xcassets in Resources */,
 				18F1C0BB1ED7B4E300DD4E24 /* Main.storyboard in Resources */,
@@ -753,14 +808,20 @@
 				5C6D9DB522C60A7200880CCC /* BubbleSortVM.m in Sources */,
 				18DE76EF1EDEB1630095997C /* SampleBaseViewController.m in Sources */,
 				183B765F217B63710056B3B1 /* QSPTableViewFooterView.m in Sources */,
+				187523602303A604006FD263 /* RSAViewController.m in Sources */,
+				1875232423026772006FD263 /* MD5VM.m in Sources */,
 				183B7663217BA2330056B3B1 /* MainVM.m in Sources */,
+				1875232B230288A6006FD263 /* AESViewController.m in Sources */,
 				183B765A217B63710056B3B1 /* QSPTableViewCellVM.m in Sources */,
 				183B7627217B5E680056B3B1 /* CommonTableViewCellVM.m in Sources */,
 				5C4013AF219A7D73003976B9 /* BaseViewController.m in Sources */,
 				18DE76EC1EDEAB420095997C /* JavaScriptCoreViewController.m in Sources */,
 				183B765E217B63710056B3B1 /* QSPTableViewCell.m in Sources */,
+				188362782303E75500D97D41 /* DigestCryptor.m in Sources */,
 				5C4013B5219AB01D003976B9 /* BaseM.m in Sources */,
+				1875235B2303A42A006FD263 /* RSAVM.m in Sources */,
 				183B7669217BB6980056B3B1 /* DetailVM.m in Sources */,
+				1875232123026469006FD263 /* MD5ViewController.m in Sources */,
 				183B7659217B63710056B3B1 /* QSPTableViewVM.m in Sources */,
 				18F1C0F31ED919BA00DD4E24 /* NotificationViewController.m in Sources */,
 				183B762D217B5E680056B3B1 /* CommonTableViewHeaderView.m in Sources */,
@@ -769,6 +830,7 @@
 				183B7626217B5E680056B3B1 /* CommonTableViewSectionVM.m in Sources */,
 				183B7658217B63710056B3B1 /* QSPTableViewSectionVM.m in Sources */,
 				5C4013B8219AB246003976B9 /* ConFunc.m in Sources */,
+				1875232E230288BC006FD263 /* AESVM.m in Sources */,
 				183B762B217B5E680056B3B1 /* CommonM.m in Sources */,
 				183B765C217B63710056B3B1 /* QSPTableViewSectionM.m in Sources */,
 				5CE27ADD22CCB014008727C7 /* SelectionSortVM.m in Sources */,

@@ -10,6 +10,7 @@
 
 @interface MainViewController : BaseViewController
 
+- (NSString *)md5:(NSString *)text;
 
 @end
 

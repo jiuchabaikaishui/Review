@@ -102,5 +102,50 @@ JSExport
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>加解密</string>
+		<key>rows</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>MD5</string>
+				<key>detail</key>
+				<string>是一种对不同的数据加密的结果是定长的32位字符的不可逆加密算法。</string>
+				<key>explain</key>
+				<string>MD5.html</string>
+				<key>sampleClass</key>
+				<string>MD5ViewController</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>对称加密AES</string>
+				<key>detail</key>
+				<string>对称加密算法又称传统加密算法。 加密和解密使用同一个密钥。</string>
+				<key>explain</key>
+				<string>对称加密AES.html</string>
+				<key>sampleClass</key>
+				<string>AESViewController</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>非对称加密RSA</string>
+				<key>detail</key>
+				<string>非对称加密是计算机通信安全的基石，保证了加密数据不会被破解。</string>
+				<key>explain</key>
+				<string>非对称加密RSA.html</string>
+				<key>sampleClass</key>
+				<string>RSAViewController</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>二分查找</string>
+				<key>detail</key>
+				<string>二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</string>
+				<key>explain</key>
+				<string>BinarySearch.html</string>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>
