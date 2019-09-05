@@ -14,9 +14,24 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // 打印bundleIdentifier
+    NSLog(@"%@", [NSBundle mainBundle].bundleIdentifier);
+    
+    // 描述文件路径
+    NSString *embeddedPath = [[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"];
+    // 读取application-identifier  注意描述文件的编码要使用:NSASCIIStringEncoding
+    NSString *embeddedProvisioning = [NSString stringWithContentsOfFile:embeddedPath encoding:NSASCIIStringEncoding error:nil];
+    NSLog(@"%@", embeddedProvisioning);
+    
+    // 检查语言环境
+    NSString *language = [[NSLocale preferredLanguages] firstObject];
+    if ([language hasPrefix:@"zh"]) {//检测开头匹配，是否为中文
+        [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:@"appLanguage"];//App语言设置为中文
+    }else{//其他语言
+        [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:@"appLanguage"];//App语言设置为英文
+    }
+    
     return YES;
 }
 

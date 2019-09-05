@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+        function callback(something){
+            var target = document.getElementById('result');
+            target.innerHTML = something;
+        }
+        function alertCallback(aString,bString){
+            alert(aString+bString);
+        }
+</script>
+<br/>
+<br/>
+<div>
+    <input type="button" value="调用OC的showMessage方法" onclick="window.webkit.messageHandlers.showMessage.postMessage({'message': '我调用了showMessage方法'})">
+</div>
+<div>
+    <input type="button" value="调用OC的showTitleAndMessage方法" onclick="window.webkit.messageHandlers.showTitleAndMessage.postMessage({'title': '这是我传的标题哦！', 'message': '我调用了showTitleAndMessage方法'})">
+</div>
+<div>
+    <input type="button" value="调用OC的doSomethingThenCallBack方法" onclick="window.webkit.messageHandlers.doSomethingThenCallBack.postMessage({})">
+</div>
+
+<br/>
+<br/>
+<div>
+    <h4>回调结果:</h4>
+    <span id="result"></span>
+</div>
+</body>
+</html>

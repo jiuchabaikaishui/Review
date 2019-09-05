@@ -12,11 +12,12 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *buttonTitle;
+@property (assign, nonatomic, getter=isNet) BOOL net;
 @property (copy, nonatomic) NSString *explain;
 @property (copy, nonatomic) NSString *sampleClass;
 @property (nonatomic, strong) RACCommand *command;
 
-+ (instancetype)detailVMWithTitle:(NSString *)title explain:(NSString *)explain andSampleClass:(NSString *)class;
-- (instancetype)initWithTitle:(NSString *)title explain:(NSString *)explain andSampleClass:(NSString *)class;
++ (instancetype)detailVMWithTitle:(NSString *)title net:(BOOL)net explain:(NSString *)explain andSampleClass:(NSString *)class;
+- (instancetype)initWithTitle:(NSString *)title net:(BOOL)net explain:(NSString *)explain andSampleClass:(NSString *)class;
 
 @end

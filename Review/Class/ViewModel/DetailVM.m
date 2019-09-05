@@ -25,12 +25,13 @@
     return _command;
 }
 
-+ (instancetype)detailVMWithTitle:(NSString *)title explain:(NSString *)explain andSampleClass:(NSString *)class {
-    return [[self alloc] initWithTitle:title explain:explain andSampleClass:class];
++ (instancetype)detailVMWithTitle:(NSString *)title net:(BOOL)net explain:(NSString *)explain andSampleClass:(NSString *)class {
+    return [[self alloc] initWithTitle:title net:net explain:explain andSampleClass:class];
 }
-- (instancetype)initWithTitle:(NSString *)title explain:(NSString *)explain andSampleClass:(NSString *)class {
+- (instancetype)initWithTitle:(NSString *)title net:(BOOL)net explain:(NSString *)explain andSampleClass:(NSString *)class {
     if (self = [super init]) {
         self.title = title;
+        self.net = net;
         self.explain = explain;
         self.sampleClass = class;
     }

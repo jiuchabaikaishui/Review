@@ -20,6 +20,7 @@
         if (dic) {
             self.titleSet(dic[@"title"]);
             self.detailSet(dic[@"detail"]);
+            self.net = [dic[@"net"] boolValue];
             self.explain = dic[@"explain"];
             self.sampleClass = dic[@"sampleClass"];
         }

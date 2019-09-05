@@ -140,7 +140,10 @@ static NSData *base64_decode(NSString *str){
 //加密
 + (NSString *)encryptString:(NSString *)str publicKeyWithContentsOfFile:(NSString *)path{
     if (!str || !path)  return nil;
-    return [self encryptString:str publicKeyRef:[self getPublicKeyRefWithContentsOfFile:path]];
+    SecKeyRef keyref = [self getPublicKeyRefWithContentsOfFile:path];
+    NSString *result = [self encryptString:str publicKeyRef:keyref];
+    CFRelease(keyref);
+    return result;
 }
 
 //获取公钥

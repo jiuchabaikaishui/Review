@@ -10,11 +10,13 @@
 #import <objc/runtime.h>
 #import "SampleBaseViewController.h"
 #import "Masonry.h"
+#import <WebKit/WebKit.h>
 
-@interface DetailViewController ()
+@interface DetailViewController ()<WKUIDelegate, WKNavigationDelegate>
 
 @property (weak, nonatomic) UIButton *button;
-@property (weak, nonatomic) UIWebView *webView;
+@property (weak, nonatomic) UIProgressView *progressView;
+@property (weak, nonatomic) WKWebView *webView;
 
 @end
 
@@ -31,11 +33,44 @@
     
     return _button;
 }
-- (UIWebView *)webView {
+- (UIProgressView *)progressView {
+    if (_progressView == nil) {
+        UIProgressView *progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        progressView.progress = 0.0f;
+        [self.view addSubview:progressView];
+        _progressView = progressView;
+    }
+    
+    return _progressView;
+}
+- (WKWebView *)webView {
     if (_webView == nil) {
-        UIWebView *webView = [[UIWebView alloc] init];
+        WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+        WKPreferences *preferences = [[WKPreferences alloc] init];
+        config.preferences = preferences;
+        NSString *jSString = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+        //用于进行JavaScript注入
+        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jSString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+        [config.userContentController addUserScript:wkUScript];
+        
+        WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
+        webView.allowsBackForwardNavigationGestures = YES;
+        webView.UIDelegate = self;
+        webView.navigationDelegate = self;
         [self.view addSubview:webView];
         _webView = webView;
+        
+        if (self.vm.isNet) {
+            [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.vm.explain]]];
+        } else {
+            NSURL *url = [[NSBundle mainBundle] URLForResource:self.vm.explain withExtension:nil];
+            if (url) {
+                NSURLRequest *request = [NSURLRequest requestWithURL:url];
+                [webView loadRequest:request];
+            } else {
+                [webView loadData:[self.vm.explain dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" characterEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
+            }
+        }
     }
     
     return _webView;
@@ -43,39 +78,11 @@
 
 
 #pragma mark - 控制器周期
+- (void)dealloc {
+    [self.webView.configuration.userContentController removeAllUserScripts];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*
-     //队列
-     //全局队列
-     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
-     
-     //主队列
-     queue = dispatch_get_main_queue();
-     
-     //串行队列
-     queue = dispatch_queue_create("myQueue", DISPATCH_QUEUE_SERIAL);
-     
-     //并行队列
-     queue = dispatch_queue_create("myQueue", DISPATCH_QUEUE_CONCURRENT);
-     
-     dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-     NSMutableArray *mArr = [NSMutableArray arrayWithCapacity:1];
-     for (NSInteger index = 0; index < 10000; index++) {
-     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-     [mArr addObject:[NSNumber numberWithInteger:index]];
-     dispatch_semaphore_signal(semaphore);
-     });
-     }
-     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-     });
-     dispatch_group_t group = dispatch_group_create();
-     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-     
-     });
-     */
     
     [self settingUI];
     [self bindVM];
@@ -117,41 +124,40 @@
             }
         }];
     }
+    [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.height.equalTo(@(2.0f));
+    }];
 }
 - (void)bindVM {
     self.title = self.vm.title;
-    NSString *path = [[NSBundle mainBundle] pathForResource:self.vm.explain ofType:nil];
-    if (path) {
-        NSURL *url = [NSURL URLWithString:[path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]]];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        [self.webView loadRequest:request];
-    } else {
-        [self.webView loadData:[self.vm.explain dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
-    }
+    
+    @weakify(self);
     if (self.vm.sampleClass && (![self.vm.sampleClass isEqualToString:@""])) {
         [self.button setTitle:self.vm.buttonTitle forState:UIControlStateNormal];
         self.button.rac_command = self.vm.command;
-        @weakify(self);
         [self.vm.command.executionSignals subscribeNext:^(id  _Nullable x) {
             @strongify(self);
             UIViewController *nextCtr = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:self.vm.sampleClass];
             [self.navigationController pushViewController:nextCtr animated:YES];
         }];
     }
+    
+    RACSignal *progressSignal = RACObserve(self.webView, estimatedProgress);
+    RAC(self.progressView, progress) = progressSignal;
+    RAC(self.progressView, hidden) = [progressSignal map:^id _Nullable(id  _Nullable value) {
+        return @([value floatValue] == 1);
+    }];
 }
 
-//- (BOOL)class:(Class)class haveTheProperty:(NSString *)propertyName
-//{
-//    unsigned int count = 0;
-//    objc_property_t *propertys = class_copyPropertyList(class, &count);
-//    for (int index = 0; index < count; index++) {
-//        NSString *name = [NSString stringWithUTF8String:property_getName(propertys[index])];
-//        if ([name isEqualToString:propertyName]) {
-//            return YES;
-//        }
-//    }
-//    
-//    return NO;
-//}
+#pragma <WKUIDelegate>代理方法
+- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
+    if (!navigationAction.targetFrame.isMainFrame) {
+        [webView loadRequest:navigationAction.request];
+    }
+    
+    return nil;
+}
 
 @end

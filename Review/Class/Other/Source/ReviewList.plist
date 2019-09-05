@@ -18,32 +18,38 @@
 				<string>NotificationViewController</string>
 			</dict>
 			<dict>
+				<key>net</key>
+				<true/>
 				<key>title</key>
 				<string>JavaScriptCore</string>
 				<key>detail</key>
 				<string>JavaScriptCore框架其实只是基于webkit中以C/C++实现的JavaScriptCore的一个包装，该框架让Objective-C和JavaScript代码直接的交互变得更加的简单方便。</string>
 				<key>explain</key>
-				<string>JSContext
-
-JS执行的环境，同时也通过JSVirtualMachine管理着所有对象的生命周期，每个JSValue都和JSContext相关联并且强引用context。
-
-JSValue
-
-JS对象在JSVirtualMachine中的一个强引用，其实就是Hybird对象。我们对JS的操作都是通过它。并且每个JSValue都是强引用一个context。同时，OC和JS对象之间的转换也是通过它。
-
-JSManagedValue
-
-JS和OC对象的内存管理辅助对象。由于JS内存管理是垃圾回收，并且JS中的对象都是强引用，而OC是引用计数。如果双方相互引用，势必会造成循环引用，而导致内存泄露。我们可以用JSManagedValue保存JSValue来避免。
-
-JSVirtualMachine
-
-JS运行的虚拟机，有独立的堆空间和垃圾回收机制。
-
-JSExport
-
-一个协议，如果JS对象想直接调用OC对象里面的方法和属性，那么这个OC对象只要实现这个JSExport协议就可以了。</string>
+				<string>https://www.jianshu.com/p/f04746624dfc</string>
 				<key>sampleClass</key>
 				<string>JavaScriptCoreViewController</string>
+			</dict>
+			<dict>
+				<key>net</key>
+				<true/>
+				<key>title</key>
+				<string>WKWebView</string>
+				<key>detail</key>
+				<string>JavaScriptCore框架其实只是基于webkit中以C/C++实现的JavaScriptCore的一个包装，该框架让Objective-C和JavaScript代码直接的交互变得更加的简单方便。</string>
+				<key>explain</key>
+				<string>https://www.jianshu.com/p/5cf0d241ae12/</string>
+				<key>sampleClass</key>
+				<string>WKWebViewController</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>国际化</string>
+				<key>detail</key>
+				<string>这里就文本，APP名称、启动图国际化做示例。</string>
+				<key>explain</key>
+				<string>iOS 国际化.html</string>
+				<key>sampleClass</key>
+				<string>LocalizationViewController</string>
 			</dict>
 		</array>
 	</dict>
@@ -57,48 +63,52 @@ JSExport
 		<key>title</key>
 		<string>GCD</string>
 		<key>rows</key>
-		<array/>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>算法</string>
-		<key>rows</key>
 		<array>
 			<dict>
 				<key>title</key>
-				<string>冒泡排序</string>
+				<string>基础</string>
 				<key>detail</key>
-				<string>冒泡排序遍历若干次要排序的数列，每次遍历时，都会从前往后依次的比较相邻两个数的大小；然后按照升降序规则判断是否交换它们的位置。</string>
+				<string>CGD是异步执行任务的技术之一，一般将引用程序中记述的线程管理用的代码在系统级中实现。</string>
 				<key>explain</key>
-				<string>BubbleSort.html</string>
+				<string>GCD基础.html</string>
 				<key>sampleClass</key>
-				<string>BubbleSortViewController</string>
+				<string>GCDBasicViewController</string>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>选择排序</string>
+				<string>dispatch_set_target_queue</string>
 				<key>detail</key>
-				<string>每次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。</string>
+				<string>dispatch_queue_create函数生成的Dispatch Queue都使用与默认优先级Global Dispatch Queue相同执行优先级的线程。</string>
 				<key>explain</key>
-				<string>SelectionSort.html</string>
+				<string>dispatch_set_target_queue.html</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Dispatch Group</string>
+				<key>detail</key>
+				<string>Dispatch Group用于监视一批处理的结束，一旦检测到所有处理结束，就会将结果处理追加到Dispatch Queue中。</string>
+				<key>explain</key>
+				<string>Dispatch Group.html</string>
 				<key>sampleClass</key>
-				<string>SelectionSortViewController</string>
+				<string>DispatchGroupViewController</string>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>快速排序</string>
+				<string>Dispatch Semaphore</string>
 				<key>detail</key>
-				<string>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</string>
+				<string>Dispatch Semaphore是持有计数的信号，该计数是多线程编程中的计数类型信号。是用更细粒度的对象实现排他控制。</string>
 				<key>explain</key>
-				<string>QuickSort.html</string>
+				<string>Dispatch Semaphore.html</string>
+				<key>sampleClass</key>
+				<string>DispatchSemaphoreViewController</string>
 			</dict>
 			<dict>
 				<key>title</key>
-				<string>二分查找</string>
+				<string>其他</string>
 				<key>detail</key>
-				<string>二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</string>
+				<string>GCD其他函数介绍</string>
 				<key>explain</key>
-				<string>BinarySearch.html</string>
+				<string>GCD 其他.html</string>
 			</dict>
 		</array>
 	</dict>
@@ -136,6 +146,41 @@ JSExport
 				<string>非对称加密RSA.html</string>
 				<key>sampleClass</key>
 				<string>RSAViewController</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>算法</string>
+		<key>rows</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>冒泡排序</string>
+				<key>detail</key>
+				<string>冒泡排序遍历若干次要排序的数列，每次遍历时，都会从前往后依次的比较相邻两个数的大小；然后按照升降序规则判断是否交换它们的位置。</string>
+				<key>explain</key>
+				<string>BubbleSort.html</string>
+				<key>sampleClass</key>
+				<string>BubbleSortViewController</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>选择排序</string>
+				<key>detail</key>
+				<string>每次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。</string>
+				<key>explain</key>
+				<string>SelectionSort.html</string>
+				<key>sampleClass</key>
+				<string>SelectionSortViewController</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>快速排序</string>
+				<key>detail</key>
+				<string>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</string>
+				<key>explain</key>
+				<string>QuickSort.html</string>
 			</dict>
 			<dict>
 				<key>title</key>

@@ -23,4 +23,6 @@
 
 #define K_WeakSelf          __weak typeof(self) weakSelf = self;
 
+#define Localized(key)      [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"Localizable"]
+
 #endif /* CommonDefine_h */

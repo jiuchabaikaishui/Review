@@ -23,6 +23,7 @@
 #ifdef __OBJC__
 
 #import "CommonDefine.h"
+#import "Obfuscation.h"
 
 /**
  *  1.调试阶段，写代码调试错误，需要打印。(系统会自定义一个叫做DEBUG的宏)

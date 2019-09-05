@@ -43,7 +43,11 @@ static NSData *base64_decode(NSString *str){
 //加密
 + (NSString *)encryptString:(NSString *)str publicKeyWithContentsOfFile:(NSString *)path{
     if (!str || !path)  return nil;
-    return [self encryptString:str publicKeyRef:[self getPublicKeyRefWithContentsOfFile:path]];
+    SecKeyRef keyref = [self getPublicKeyRefWithContentsOfFile:path];
+    NSString *result = [self encryptString:str publicKeyRef:keyref];
+    
+    CFRelease(keyref);
+    return result;
 }
 
 //获取公钥
@@ -74,7 +78,7 @@ static NSData *base64_decode(NSString *str){
 }
 
 + (NSString *)encryptString:(NSString *)str publicKeyRef:(SecKeyRef)publicKeyRef{
-    if(![str dataUsingEncoding:NSUTF8StringEncoding]){
+    if([str dataUsingEncoding:NSUTF8StringEncoding] == nil){
         return nil;
     }
     if(!publicKeyRef){
@@ -247,7 +251,7 @@ static NSData *base64_decode(NSString *str){
     return ([NSData dataWithBytes:&c_key[idx] length:len - idx]);
 }
 
-+ (NSData *)encryptData:(NSData *)data withKeyRef:(SecKeyRef) keyRef{
++ (NSData *)encryptData:(NSData *)data withKeyRef:(SecKeyRef)keyRef{
     const uint8_t *srcbuf = (const uint8_t *)[data bytes];
     size_t srclen = (size_t)data.length;
     
@@ -282,7 +286,6 @@ static NSData *base64_decode(NSString *str){
     }
     
     free(outbuf);
-    CFRelease(keyRef);
     return ret;
 }
 

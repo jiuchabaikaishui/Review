@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Review
+
+  Created by apple on 2019/8/15.
+  Copyright © 2019 QSP. All rights reserved.
+*/
+
+CFBundleDisplayName = "复习";

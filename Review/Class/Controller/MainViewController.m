@@ -41,7 +41,7 @@
     if ([segue.identifier isEqualToString:@"HomeToDetail"]) {
         DetailViewController *nextCtr = (DetailViewController *)segue.destinationViewController;
         MainCellM *model = ((QSPTableViewCellVM *)[self.vm.tableViewVM rowVMWithIndexPath:[self.tableView indexPathForCell:sender]]).dataM;
-        nextCtr.vm = [DetailVM detailVMWithTitle:model.title explain:model.explain andSampleClass:model.sampleClass];
+        nextCtr.vm = [DetailVM detailVMWithTitle:model.title net:model.isNet explain:model.explain andSampleClass:model.sampleClass];
     }
 }
 

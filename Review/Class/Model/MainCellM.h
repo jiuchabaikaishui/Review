@@ -11,6 +11,7 @@
 @interface MainCellM : CommonM
 
 @property (copy, nonatomic) NSString *explain;
+@property (assign, nonatomic, getter=isNet) BOOL net;
 @property (copy, nonatomic) NSString *sampleClass;
 
 + (instancetype)mainMWithDic:(NSDictionary *)dic;
