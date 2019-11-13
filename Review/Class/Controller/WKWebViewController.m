@@ -22,7 +22,61 @@
 - (void)dealloc {
     [self.webView.configuration.userContentController removeAllUserScripts];
 }
+
+typedef struct Node {
+    int data;
+    struct Node *next;
+} Node;
+
+Node * reverseNodeList(Node *h) {
+    Node *result = NULL;
+    Node *p = h;
+    while (p != NULL) {
+        Node *temp = p->next;
+        p->next = result;
+        result = p;
+        p = temp;
+    }
+    return result;
+}
+Node * reverse(Node *h) {
+    if (h == NULL || h->next == NULL) {
+        return h;
+    }
+    Node *result = reverse(h->next);
+    h->next->next = h;
+    h->next = NULL;
+
+    return result;
+}
+void nodeLog(Node *h) {
+    if (h == NULL) {
+        printf("null");
+    }
+    Node *p = h;
+    while (p != NULL) {
+        Node node = *p;
+        printf("%i", node.data);
+        p = node.next;
+    }
+    printf("\n");
+}
 - (void)viewDidLoad {
+    Node node;
+    node.data = 1;
+    node.next = NULL;
+    Node node1;
+    node1.data = 2;
+    node1.next = &node;
+    Node node2;
+    node2.data = 3;
+    node2.next = &node1;
+    
+    Node *h = &node2;
+    nodeLog(h);
+//    nodeLog(reverseNodeList(h));
+    nodeLog(reverse(h));
+    
     [super viewDidLoad];
     
     self.title = @"与JS交互";
@@ -42,7 +96,7 @@
     [contentCtr addUserScript:script];
     NSString *jSString = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
     [contentCtr addUserScript:[[WKUserScript alloc] initWithSource:jSString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES]];
-    __weak typeof(self) weakSelf = self;
+    K_WeakSelf
     [contentCtr addScriptMessageHandler:weakSelf name:@"showMessage"];
     [contentCtr addScriptMessageHandler:weakSelf name:@"showTitleAndMessage"];
     [contentCtr addScriptMessageHandler:weakSelf name:@"doSomethingThenCallBack"];
@@ -56,6 +110,7 @@
     // 设置是否允许画中画技术 在特定设备上有效
     configuration.allowsPictureInPictureMediaPlayback = YES;
     configuration.userContentController = contentCtr;
+    configuration.preferences = preferences;
     
     // 4. 创建webView
     WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
@@ -105,7 +160,7 @@
         [controller addAction:action];
         [self presentViewController:controller animated:YES completion:nil];
     } else if ([message.name isEqualToString:@"showTitleAndMessage"]) {
-        UIAlertController *controller = [UIAlertController alertControllerWithTitle:message.body[@"tittle"] message:message.body[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:message.body[@"title"] message:message.body[@"message"] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
         [controller addAction:action];
         [self presentViewController:controller animated:YES completion:nil];

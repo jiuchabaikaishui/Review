@@ -97,6 +97,8 @@ bool CheckHookForOC(const char* clsname,const char* selname){
         return false;
     }
     
+    printf("%s\n", _dyld_get_image_name(0));
+    
     if(!strcmp(info.dli_fname, _dyld_get_image_name(0))){
         return false;
     }
@@ -151,13 +153,15 @@ int main(int argc, char * argv[]) {
     @autoreleasepool {
 //        NSLog(@"----%i----", existDebugger());
 //
-//        CheckHookForOC("MainViewController", "viewDidLoad");
+        CheckHookForOC("MainViewController", "viewDidLoad");
 //        disable_gdb();
 //        AMCheckInjector();
 //
 //        char *env = getenv("DYLD_INSERT_LIBRARIES");
 //        NSLog(@"%s", env);
         
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        int result = UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        
+        return result;
     }
 }

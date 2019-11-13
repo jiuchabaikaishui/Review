@@ -67,6 +67,7 @@
     [self.vm.callCommand.executionSignals subscribeNext:^(id  _Nullable x) {
         @strongify(self);
         JSValue *callBack = self.context[@"callback"];
+        
         [callBack callWithArguments:@[@"大家好！"]];
     }];
     

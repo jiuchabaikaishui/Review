@@ -57,20 +57,22 @@
         webView.allowsBackForwardNavigationGestures = YES;
         webView.UIDelegate = self;
         webView.navigationDelegate = self;
-        [self.view addSubview:webView];
-        _webView = webView;
         
+        // 网络html链接
         if (self.vm.isNet) {
-            [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.vm.explain]]];
+            [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.vm.explain]]];
         } else {
             NSURL *url = [[NSBundle mainBundle] URLForResource:self.vm.explain withExtension:nil];
-            if (url) {
+            if (url) { // 本地html
                 NSURLRequest *request = [NSURLRequest requestWithURL:url];
                 [webView loadRequest:request];
-            } else {
+            } else { // 纯文本
                 [webView loadData:[self.vm.explain dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/plain" characterEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
             }
         }
+        
+        [self.view addSubview:webView];
+        _webView = webView;
     }
     
     return _webView;
@@ -149,6 +151,11 @@
     RAC(self.progressView, hidden) = [progressSignal map:^id _Nullable(id  _Nullable value) {
         return @([value floatValue] == 1);
     }];
+}
+
+#pragma mark <WKNavigationDelegate>代理方法
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    
 }
 
 #pragma <WKUIDelegate>代理方法

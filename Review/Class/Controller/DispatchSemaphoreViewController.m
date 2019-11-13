@@ -62,7 +62,6 @@
                 dispatch_semaphore_signal(semaphore);
             }];
         });
-        
         dispatch_async(queue, ^{
             // dispatch_semaphore_wait会阻塞线程，因为网络回调在主线程，注意避免发生死锁
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);

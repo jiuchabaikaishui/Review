@@ -190,6 +190,16 @@
 				<key>explain</key>
 				<string>BinarySearch.html</string>
 			</dict>
+			<dict>
+				<key>title</key>
+				<string>单向链表</string>
+				<key>detail</key>
+				<string>单向链表是一堆数据被存放到不连续的内存空间，但每组数据都会有一个变量指向下一组数据的地址(指针)，以此来连接起来。</string>
+				<key>explain</key>
+				<string>单向链表.html</string>
+				<key>sampleClass</key>
+				<string>LinkListViewController</string>
+			</dict>
 		</array>
 	</dict>
 </array>

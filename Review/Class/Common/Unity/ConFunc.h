@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface ConFunc : NSObject
 
@@ -22,6 +23,11 @@
  @param lenth 数组长度
  */
 void printCArray(int arr[], int lenth);
+
+/**
+ 响应者链
+ */
++ (void)responderChainFormView:(UIResponder *)responder;
 
 @end
 

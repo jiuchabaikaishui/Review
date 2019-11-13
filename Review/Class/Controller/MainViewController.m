@@ -13,7 +13,7 @@
 #import "DetailVM.h"
 
 @interface MainViewController ()
-@property (strong, nonatomic) NSMutableArray *dataArr;
+
 @property (nonatomic, strong) MainVM *vm;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

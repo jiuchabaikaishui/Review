@@ -34,4 +34,11 @@ void printCArray(int arr[], int lenth) {
     printf("}\n");
 }
 
++ (void)responderChainFormView:(UIResponder *)responder {
+    if (responder) {
+        DebugLog(@"%@", responder);
+        [self responderChainFormView:responder.nextResponder];
+    }
+}
+
 @end
